@@ -1,0 +1,20 @@
+body {
+    background-color: #f4f4f4;
+}
+
+div{
+    border-width: 5px;
+    border-style: solid;
+    border-color: #00FF00;
+}
+
+h1{
+    color: white;
+    background-color: blueviolet;
+    width: 400px;
+    height: 40px;
+    margin: 10px;
+    padding: 15;
+    border: 5ps solid #0000;
+}
+

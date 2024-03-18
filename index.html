@@ -4,21 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estudo para o teste de HTML</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <header>
     <a href="index.html"><h1>Meteorologia Quental</h1></a>
     <div>
-            <a href="previsao_do_tempo.html"><ul>Previsão do Tempo</ul></a>
-            <a href="localizacao.html"><ul>Localização</ul></a>
-            <a href="noticias.html"><ul>Notícias</ul></a>
-            <a href="quem_somos.html"><ul>Quem Somos</ul></a>
-            <a href="contactos.html"><ul>Contactos</ul></a>
+        <thead>
+           <tr>
+            <a href="index.html">Home |</a>
+            <a href="previsao_do_tempo.html">Previsão do Tempo |</a>
+            <a href="localizacao.html">Localização |</a>
+            <a href="#Notícias">Notícias |</a>
+            <a href="quem_somos.html">Quem Somos |</a>
+            <a href="contactos.html">Contactos </a></tr> 
+        </thead>
+        <br>
+            Pesquisa por Localização: 
+                <input type="text" name="email">
+                <a href="enganado.html">
+                    <button>Submeter</button>
+                </a>
+            <br>
     </div>
 </header>
+<hr>
 <body>
     <h1>Bem-Vindos á melhor aplicação de meteorologia em Portugal</h1>
-    <!-- <img src="/multimedia/StrongLock.png" alt="StrongLock"> -->
-    <!-- <audio src="/multimedia/fsm-team-happy-days.mp3" controls><code>audio</code></audio> -->
-    <!-- <video src="./multimedia/video.mp4"></video> -->
+    <table width="200px" height="200px">
+        <thead>
+           <tr>
+               <th>Distrito</th>
+               <th>Temp. Máxima</th>
+               <th>Temp. Mínima</th>
+            </tr> 
+        </thead>
+        <tbody>
+            <tr>
+                <td>Porto</td>
+                <td>20ºC</td>
+                <td>10ºC</td>
+            </tr>
+            <tr>
+                <td>Lisboa</td>
+                <td>25ºC</td>
+                <td>15ºC</td>
+            </tr>
+            <tr>
+                <td>Coimbra</td>
+                <td>22ºC</td>
+                <td>12ºC</td>
+            </tr>
+            <tr>
+                <td>Évora</td>
+                <td>30ºC</td>
+                <td>20ºC</td>
+            </tr>
+            <tr>
+                <td>Portalegre</td>
+                <td>28ºC</td>
+                <td>18ºC</td>
+            </tr>
+            <tr>
+                <td>Beja</td>
+                <td>32ºC</td>
+                <td>22ºC</td>
+            </tr>  
+            <tr>
+                <td>Faro</td>
+                <td>35ºC</td>
+                <td>25ºC</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <img src="/multimedia/weather-map.png" alt="Weather Map" width="600px"><br>
+
+    <aside>
+                <!-- <audio src="/multimedia/fsm-team-happy-days.mp3" controls><code>audio</code></audio> -->
+        <!-- <video src="./multimedia/video.mp4"></video> -->
+        <input type="date" name="data" id="">
+        <input type="time" name="hora" id="">
+        <input type="submit" value="Submeter">
+        <br>
+        <input type="range" name="" id="" min="0" max="500">
+        <input type="color" name="" id="">
+        <select name="" id="">
+            <option value="1">Opção 1</option>
+            <option value="2">Opção 2</option>
+            <option value="3">Opção 3</option>
+            <option value="4">Opção 4</option>
+        </select>
+    </aside>
 </body>
+
+<div id="Notícias">
+    <h2>Notícias de Última Hora</h2>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut orci in metus luctus ornare. Integer aliquet, leo vitae lacinia tincidunt, mauris ipsum fringilla leo, imperdiet rutrum neque justo vitae arcu. Nam et augue in lectus cursus luctus id at sem. Phasellus vulputate quam vitae risus efficitur luctus. Nullam suscipit sodales leo ac dignissim. Donec nisl lorem, maximus nec nunc vitae, feugiat semper lectus. Suspendisse ex orci, pulvinar quis luctus ut, dignissim eget tortor. Mauris eu leo diam. Pellentesque viverra nibh eu lorem semper, quis pulvinar dui tristique. In tempus augue quis tortor iaculis rutrum.
+<p></p>
+Nulla elit arcu, luctus facilisis lacinia quis, tristique eu ante. Donec pellentesque congue congue. Maecenas vitae ipsum elementum, finibus tortor interdum, luctus dolor. Sed pellentesque mi nisi. Sed placerat, justo at tristique convallis, odio justo imperdiet libero, sit amet efficitur sem velit ut magna. Nulla sed mauris ut ligula mollis ullamcorper id non neque. Phasellus turpis nisl, aliquam eget pulvinar vitae, tristique ut magna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+<p></p>
+Ut elementum congue molestie. Nam non eros faucibus diam eleifend efficitur at ut dolor. Sed in aliquam sem, ut vestibulum est. Donec fermentum cursus orci, sit amet commodo nisl porta at. Nulla fringilla ante mi, vel vehicula massa dignissim ac. Etiam tellus libero, accumsan eget purus vitae, ultricies convallis dui. Nullam et porta lectus, in luctus nisi. Praesent elementum justo justo, eget sollicitudin mauris lobortis ac.
+<p></p>
+Nunc interdum non elit scelerisque rhoncus. Aliquam erat volutpat. In et dolor eget orci vehicula eleifend. Aenean tellus dolor, cursus in sodales quis, ultrices vitae erat. Sed in nulla molestie, laoreet diam eu, mollis velit. Aliquam auctor est at justo mollis accumsan. Morbi sollicitudin tempus pulvinar. Duis gravida sapien hendrerit lectus ultricies, vel lacinia odio ultrices. Phasellus facilisis faucibus nulla, auctor pretium magna egestas in.
+<p></p>
+Mauris sagittis non massa sed mollis. Proin dictum non ex non rhoncus. Curabitur sed sagittis metus. Etiam ac auctor ligula. Integer nec vestibulum dui. Fusce non urna et elit dapibus pellentesque. Integer et orci velit. Vestibulum blandit faucibus dolor, sit amet aliquam tortor rhoncus id. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus dolor arcu, volutpat vitae mauris id, eleifend ultrices nisl. Nullam turpis dui, mollis eu eros ut, feugiat interdum augue. Nullam ac vestibulum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis ligula nec arcu dapibus finibus eget nec enim. Aliquam pellentesque scelerisque eros ac posuere. Praesent rhoncus magna velit, suscipit mattis tellus consequat ac.
+<p></p>
+Mauris in justo sem. Praesent ut laoreet mauris. Nulla a libero semper lacus tempor lobortis. Maecenas nec feugiat enim. Pellentesque ornare luctus mi, at ornare est ullamcorper in. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce aliquam diam facilisis libero laoreet, eu luctus enim congue. Vestibulum varius tincidunt nisl, eu suscipit leo molestie feugiat. Aliquam at diam sodales, cursus nibh sed, lobortis nulla. Phasellus augue purus, feugiat et felis eget, blandit convallis ante. Aliquam sodales facilisis commodo.
+<p></p>
+Sed cursus velit viverra tortor rhoncus laoreet. Phasellus non velit sit amet felis facilisis mollis sed in risus. Etiam eget massa lacus. Duis justo ex, dignissim eu sollicitudin quis, efficitur vitae urna. Fusce et elit felis. In ornare elementum ex, id faucibus nunc dictum nec. Duis ullamcorper mi a facilisis consectetur. Quisque commodo dui erat, et placerat sapien hendrerit vitae. Vestibulum at efficitur nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+<p></p>
+
+<h2>Estado do Mar</h2>
+Praesent faucibus dolor ac eros ullamcorper maximus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque eleifend bibendum orci, vitae scelerisque ipsum euismod ut. Sed bibendum augue ac maximus laoreet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla pulvinar est eget auctor varius. Donec et tellus id tortor dapibus volutpat id nec diam. Donec tincidunt massa quam, eget feugiat purus tempor et. Vivamus molestie gravida lorem non convallis. Vivamus suscipit condimentum ex at mattis. Morbi eget magna quis sapien pretium gravida. In sagittis venenatis tempor. Etiam ac elementum justo.
+<p></p>
+Praesent consectetur felis id velit rutrum, sed dignissim nulla vehicula. Sed sodales augue in lectus pulvinar pellentesque. Maecenas vulputate in mauris non tristique. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut ut mi a dui bibendum sollicitudin sit amet sed nisl. Donec tempus suscipit erat. Curabitur eget luctus enim, tempor consectetur turpis.
+<p></p>
+Morbi elit augue, mollis non elit sed, fringilla elementum nisl. Maecenas nec turpis risus. Quisque orci lacus, semper ut placerat nec, rhoncus vitae nisi. Curabitur ligula libero, pellentesque a justo ac, lacinia vulputate felis. In condimentum tempor sapien. Mauris sed efficitur turpis. Vestibulum fringilla mauris nec eros laoreet euismod. Vestibulum nec sodales erat, eu venenatis tellus. Donec ut elit leo. Praesent tincidunt enim quis tellus varius cursus. Curabitur eleifend, orci nec consectetur faucibus, ex turpis ultricies lectus, vitae congue tellus leo in lacus. Fusce quis ultricies risus, a vehicula ligula. Pellentesque laoreet eleifend nisi. Nulla enim mi, fermentum mattis erat sit amet, finibus eleifend mi. Quisque nec suscipit erat, a lobortis felis. Etiam eget varius felis. 
+</div>
+<footer>
+    <small>Tecnologias Digitais e Segurança de Informação</small>
+</footer>
 </html>

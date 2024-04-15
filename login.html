@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro para a receita</title>
+</head>
+<body>
+    <!--criação da pagina de login-->
+    <main class="pagina_de_login">
+    <h2>Cadastra-te para receber o e-book da melhor receita</h2>
+        <form action="e-book.html" method="get"> <!--Utilização do metodo get para poder redirecionar a pessoa para outra página após acabar de dar login-->
+            <fieldset>
+                <legend>Detalhes Pessoais</legend>
+                <label for="nome">Qual é o seu nome:</label><br>
+                <input type="text" id="nome" name="nome" required><br>
+            
+                <label for="email">Qual é o seu email:</label><br>
+                <input type="email" id="email" name="email" required><br> <!--utilizei o type= "email", para que seja preciso existir um "@" no texto para que este campo esteja válido-->
+            
+                <label for="senha">Digite a senha que pretende usar:</label><br>
+                <input type="password" id="senha" name="senha" required><br> <!--utilizei o type="password" para que quando o utilizador digitar neste campo não seja visivel os caracteres que estão a ser digitados-->
+            
+                <label for="">Quer receber noticias no seu email</label>
+                <input type="checkbox" id="checkbox" name="checkbox"><br> <!--utilizei o type="checkbox" para ser mais prático as pessoas aceitarem os termos em vez de terem que dizer que sim ou não-->
+
+                <input type="submit" value="Login">
+            </fieldset>
+        </form>
+    </main>
+    <footer class="rodape"> 
+        <small>Reviews dos tugas</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste HTML</title>
+</head>
+<body>
+    <h1>TESTE HTML</h1>
+
+    <header class="cabeçalho">
+        <br> <!-- quebra a linha-->
+        <h1>Bem vindo ao meu teste</h1>
+
+        <figure> 
+            <img src="images/rony.jpg" width="10%" height="10%" alt="Ronaldo"> <!--insiro uma imagem com uma determinada largura e comprimento-->
+        </figure>
+
+        <nav class="menu-de-navegacao">
+            <ul> <!-- lista não ordenada-->
+                <li><a href="https://www.sporting.pt/">Site Sporting</a></li> <!--li mete uma bola antes-->
+                <li><a href="index2.html">Outra página html</a></li> <!--a tag <a é para meter um link-->
+                <li><a href="#ancora">Dados pessoais (Ancora)</a></li> <!-- acora que vai descer no site-->
+            </ul>
+        </nav>
+    </header>
+
+    <hr> <!--traco-->
+
+    <aside class="conteudo-secundario"> 
+
+            <ul>
+                <strong>Clubes:</strong> <!-- Fica a bolt com o strong-->
+                <li>Sporting</li> 
+                <li>Benfica</li>
+                <li>Porto</li>
+                <li>Se quiser saber notícias todos os dias acerca de futebol aceda <strong> <a href="https://www.record.pt/">aqui</a></strong></li>
+            </ul>
+    
+    </aside>
+    <hr>
+
+
+    <main class="Conteudo-principal">
+        <h2>Acontecimento Histórico</h2> <!-- titulo-->
+        <p>
+            <em>Bayer Leverkusen é campeão alemão pela primeira vez na história.</em> <!--Italico-->
+            O clube alemão é treinado pelo ex jogador xabi alonso que o ano passado chegou a equipa que estava a lutar para nao descer de divisao
+        </p>
+        
+        <h3>Motivo</h3>
+        <p> <!-- paragrafo-->
+            <q>Isto Acontece porque o Xabi é bastante bom</q> <small>Disse Filipe Costa em entrevista ao Iscte-Sintra</small><!--citacao--> <!--Small texto mais pequeno-->
+        </p>
+        
+        <hr> <!--Cria uma linha para dividir-->
+
+        <h2>Por favor, preencha o formulário:</h2>
+        <form action="questionario"> <!--formulario-->
+            <p>
+                Declare que aceita os temos: <input type="checkbox" name="checkbox">
+            </p>
+            <p>
+                É de que clube?
+                <input list="clubes">
+                <datalist id="clubes">
+                    <option value="Benfica"></option>
+                    <option value="Sporting"></option>
+                    <option value="Porto"></option>
+                </datalist>
+                
+            </p>
+            <p>
+                Idade: <input type="number" name="number">
+            </p>
+            <p>
+                Data de Nascimento: <input type="date" name="date">
+            </p>
+            <fieldset>
+                <legend id="ancora">Dados Pessoais</legend>
+                Nome: <input type="text" name="nome"> <!--input é uma caixa de entrada que neste caso pode ter varios tipos-->
+                Email: <input type="email" name="email">
+                Contacto telefónico: <input type="number" name="nr">
+                <button type="submit">Ok</button> <!--Botão-->
+            </fieldset>
+        </form>
+    </main>
+     
+    <footer class="Rodape">
+        <p>
+        <small><strong>Mini teste PI</strong> </small>
+        </p>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

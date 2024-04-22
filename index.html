@@ -4,10 +4,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Teste #1 de HTML</title> <!-- Titulo que irá aparecer em cima da barra de pesquisa do google-->
+    
+<!--CSS Interno-->
+    <style>
+                
+        body {
+            font-family: Arial, 'Times New Roman';
+            background-color: #ffffff;
+        }
+
+        .cabeçalho {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .cabeçalho h2 {
+            margin: 20px;
+        }
+ 
+        .menu_para_outras_paginas ul {
+            margin: 20px;
+            padding: 10px;
+        }
+
+        .menu_para_outras_paginas ul li {
+            display: inline;   /* Coloquei display inline, para que seja mais parecido com uma barra de navegação normal e para que não ficasse uma linha em cima da outra com um ponto atrás*/
+            margin-right: -7px; 
+            margin-left: 15px;
+        }
+
+        .menu_para_outras_paginas ul li a {
+            color: #fff;
+        }
+
+        .conteudo_secundario {
+            background-color: #ffffff;
+            padding: 20px;
+        }
+
+        .conteudo_principal {
+            padding: 20px;
+        }
+
+        .conteudo_principal h2 a {
+            color: #111111
+        }
+
+        .imagem_francesinha {
+            padding:0.5% ;
+        }
+
+        .rodape {
+            font-size: xx-small; /* Determinar o tamanho da fonte do texto */
+            color: #111111;
+            padding: 10px;
+        }
+
+    </style>
 </head>
 
 <body>
-    <h1>TESTE #1 de programação para a internet</h1>
+    <h1 style="text-align: center; color: black;">TESTE #1 de programação para a internet</h1> <!--Utilização de CSS inline-->
 
     <header class="cabeçalho">
 
@@ -41,7 +100,7 @@
                 Porque é simplesmente fantástica <br> Quem discordar está a mentir. <!--Utilização do <br> para fazer a quebra de linha-->
             </p>
 
-
+            
             <figure> 
                 <img src="francesinha.jpeg" width="25%" height="25%" alt="Francesinha"> <!--Colocar a imagem no site com 25% de tamanho como de altura relativamente ao espeço disponivel para a imagem e se a mesma não conseguir ser carregada no browser do utilizador irá aparecer escrito "Francesinha" para dar referencia ao que a imagem mostra -->
                 <figcaption>Imagem 1. Uma obra de Arte!</figcaption> <!--Criação de uma legenda para a imagem-->

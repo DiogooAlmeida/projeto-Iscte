@@ -1,0 +1,47 @@
+/* CSS externo */
+body {
+    font-family: Arial, 'Times New Roman'; /* Escolher o tipo de fontes de texto que irá aparecer para o utilizador quando o mesmo abrir o website, escolhi duas fontes, visto que às vezes há browsers que não são compativeis com algumas fontes, logo se não for compativel com a fonte arial, o texto irá aparecer em Times New Roman */
+    background-color: #f0f0f0; /* Escolher a cor do background */
+}
+
+.pagina_de_login {
+    max-width: 400px; /* Definir o tamanho */
+    margin: 150px auto; /* Coloquei "auto" para que a pagina de login esteja centralizada*/ /* A "margin" serve para definir o espaço entre a mergem e onde começa o login */
+    padding: 20px; /* Para definir o espaço entre as bordas e o texto*/
+    background-color: #fff;
+    border-radius: 10px; /* Serve só para arrendodar um pouco as bordas da pagina de login, de forma a ficar mais bonito e não muito quadrado */
+}
+
+.pagina_de_login h2 {
+    color: #000000;
+}
+
+.pagina_de_login input[type="text"],.pagina_de_login input[type="email"],.pagina_de_login input[type="password"] {
+    width: 90%; 
+    padding: 10px;
+    margin-bottom: 15px; /* Tamanho em pixeis do texto para a borda de baixo */
+    border: 1px solid #cbcbcb; /* Coloquei borda solida, para que se podesse ver a própria borda, caso contrário ele iria desaparecer */
+    border-radius: 10px; /* Serve para arredondar as bordas da borda para não ficar muito quadrado */
+    border-style: dotted; /* Mudar o estilo da borda para picotado */
+}
+
+/* Usei a margin-bottom e a margin-left mover a check box um pouco mais para a direita e para haver um espaçamento maior entre a ultima linha e o botão de login */
+.pagina_de_login input[type="checkbox"] {
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+.pagina_de_login input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #0071e9;
+    color: #fff;
+    border: 0px;  /* Coloquei a borda com 0 pixeis de forma a que ela seja nula e não apareça */
+    border-radius: 5px;   
+}
+
+.rodape {
+    text-align: center; /* Centrei o rodape*/
+    margin-top: -140px; /* Subi o rodapé para ficar logo em baixo do login */
+}
+

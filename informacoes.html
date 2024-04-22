@@ -4,16 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informações</title>
+    <!-- Em baixo está um exemplo de estilização CSS3 interna -->
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #9da3be; /* Cor de fundo do corpo */
+        }
+
+        .container {
+            width: 80%;
+            background-color: #c19191; /* Cor de fundo da caixa */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+            text-align: center;
+        }
+
+        h1, h2, p {
+            margin-bottom: 20px; /* Espaçamento inferior */
+        }
+
+        h1 {
+            margin-bottom: 40px; /* Espaçamento inferior maior para o título */
+        }
+
+        .middle {
+            margin-bottom: 40px; /* Espaçamento inferior maior para o texto do meio */
+        }
+    </style>
 </head>
 <body>
-    <h1>
-        Página de informações
-    </h1>
+    <div class="container">
+        <h1>Página de informações</h1>
 
-    <h2>Quem é este webdesigner incrível?</h2>
-    <div title="texto"> Rui Ferreira nasceu em Sintra em 1994 e mal nasceu tornou-se no melhor webdesigner de que há memória.
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis numquam, aliquam aliquid officia cupiditate unde repellendus culpa praesentium, odit beatae porro illo placeat, eum aut libero fugiat sit a? Omnis!
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi ullam rem, qui enim, commodi in doloribus laudantium dolorem inventore alias delectus distinctio sit recusandae non voluptatum molestias hic aliquam est.</p>
+        <h2>Quem é este webdesigner incrível?</h2>
+
+        <div class="middle" title="texto">
+            <p>Rui Ferreira nasceu em Sintra em 1994 e mal nasceu tornou-se no melhor webdesigner de que há memória.</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis numquam, aliquam aliquid officia cupiditate unde repellendus culpa praesentium, odit beatae porro illo placeat, eum aut libero fugiat sit a? Omnis!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi ullam rem, qui enim, commodi in doloribus laudantium dolorem inventore alias delectus distinctio sit recusandae non voluptatum molestias hic aliquam est.</p>
+        </div>
     </div>
 </body>
 </html>

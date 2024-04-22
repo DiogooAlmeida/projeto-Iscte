@@ -3,14 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Esta linha serve para puxar as estilizações css do ficheiro styles.css -->
+    <link rel="stylesheet" href="styles.css">
+
     <title>HTML-Mini-teste</title>
 </head>
 <body>
-    <h1>Bem vindo á página de HTML mais bonita da sala 1.02 turma de cibersegurança</h1>
+    <div class="titulo">
+    <!-- Aqui vemos um exemplo de uma estilização CSS inline -->
+    <h1 style="color: white ">Bem vindo á página de HTML mais bonita da sala 1.02 turma de cibersegurança</h1>
+    </div>
 
+    <div title="image">
     <!-- Imagem -->
     <h2>Exemplo de imagem:</h2>
     <img src="./assets/image.jpg" alt="Placeholder Image">
+    </div>
 
     <!-- audio -->
     <h2>Exemplo de áudio:</h2>
@@ -20,11 +29,13 @@
     </audio>
 
     <!-- Video -->
+    <div title="video">
     <h2>Exemplo de vídeo:</h2>
     <video width="320" height="240" controls>
         <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
         O teu browser não suporta esta tag de video.
     </video>
+    </div>
 
     <!-- Tabela -->
     <h2>Exemplo de tabela:</h2>
@@ -68,20 +79,30 @@
 
     <!-- Parágrafo -->
     <h2>Exemplo de parágrafo:</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti nam laudantium quis soluta corporis ea beatae, delectus harum at, magnam facere modi expedita omnis repellat dolore totam quisquam, fuga eveniet!</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti nam laudantium quis soluta corporis ea beatae, delectus harum at, magnam facere modi expedita omnis repellat dolore totam quisquam, fuga eveniet!
 
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur neque libero, accumsan et imperdiet id, luctus vitae libero. Fusce eros tortor, lacinia ut dolor nec, finibus mattis dui. In dui metus, consectetur sit amet risus eget, bibendum consequat tellus. Sed in purus quis massa consequat ultrices a sit amet est. Suspendisse quis pharetra massa. Cras molestie dolor diam, sed fringilla diam iaculis et. Donec ac eros viverra, iaculis elit ac, facilisis quam. Cras at viverra neque, vel pellentesque urna. Proin non convallis nisl, ut varius ex. Sed pulvinar quis nunc quis fermentum. Vivamus non cursus turpis. Aenean quis bibendum massa. Fusce pulvinar enim vel orci accumsan, quis aliquam massa tincidunt. Nunc luctus iaculis lacus, sed blandit nunc luctus eu.
+
+    Cras id euismod leo. Aliquam ultrices nisi metus, id dapibus lacus mattis eget. Nunc pharetra dolor tortor, a facilisis diam semper non. Suspendisse at cursus tellus. Mauris pharetra, neque sed lobortis pulvinar, leo elit scelerisque libero, eu interdum orci libero in mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis tempor quam. Maecenas convallis lacinia iaculis. Etiam tristique turpis at risus condimentum varius sagittis non turpis. Pellentesque non aliquet enim. Suspendisse potenti. Nunc scelerisque ipsum semper nibh congue bibendum. Nam sed arcu ac felis condimentum consequat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent sit amet placerat ligula. Fusce rhoncus nisl diam, ac efficitur arcu efficitur in.
+    
+    Aenean in imperdiet magna. Donec imperdiet maximus ex, id tincidunt augue molestie in. Praesent sodales ullamcorper posuere. Duis rutrum mauris ac enim ultrices, id malesuada dui lobortis. Nullam a rutrum nisl. Nunc tincidunt leo enim, ornare suscipit nisi aliquet eu. Vivamus id orci orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam euismod erat augue, vitae consequat purus posuere quis. Nullam auctor ut ipsum a eleifend. Maecenas eget rutrum diam.
+    
+    Suspendisse gravida leo felis, non fermentum nibh ornare ut. Aenean eu cursus arcu, vel dapibus ipsum. Quisque pellentesque libero ut lorem commodo hendrerit. Mauris consectetur est est. Vivamus nibh nisl, hendrerit eu aliquam ut, lacinia sed lorem. Proin eget varius urna. In a feugiat tortor. Proin tempus eleifend diam vitae tincidunt. Suspendisse mattis pulvinar libero, eget condimentum felis pulvinar sed. Mauris vel iaculis est, vitae luctus eros.
+    
+    Etiam ullamcorper libero sit amet elit auctor, a faucibus est vehicula. Praesent mi purus, ultricies quis consequat vitae, varius et ante. Morbi sit amet lectus ultricies, mollis nisi nec, faucibus neque. Sed aliquam justo lectus, at tincidunt felis accumsan non. Sed a nunc sed nisi semper accumsan sed eget purus. Nam libero dui, varius sit amet tincidunt at, ultrices eu magna. Nullam consectetur sapien a blandit varius. Suspendisse et suscipit neque, eu bibendum sem. Phasellus lacinia velit ac est suscipit aliquet. Proin ipsum libero, pellentesque non pretium vitae, dapibus et velit. Nam ornare consequat lectus, ac vehicula ex scelerisque vitae. </p>
     <!-- Botão -->
     <h2>botão:</h2>
     <button>Clica-me</button>
 
     <!-- Formulário -->
     <h2>formulário:</h2>
-    <form>
+    <form action="submetido.html">
         <label for="fname">Primeiro Nome:</label><br>
         <input type="text" id="fname" name="fname"><br>
         <label for="lname">Último Nome:</label><br>
         <input type="text" id="lname" name="lname"><br><br>
-        <input type="submit" value="Submeter">
+        <input type="submit" value="Submeter" >
     </form>
     <br>
     <!-- botão de radio-->
@@ -141,8 +162,8 @@
     <!-- Exemplo de um fieldset -->
     <h2>Fieldset:</h2>
     <fieldset>
-        <legend>As tuas credenciais</legend>
-        Utilizador: <input type="text">
+        <legend><h2>As tuas credenciais</h2></legend>
+        Utilizador: <input type="text"><br>
         Password: <input type="text">
         <input type="button" value="submit">
     </fieldset>

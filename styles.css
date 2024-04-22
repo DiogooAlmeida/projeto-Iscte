@@ -1,0 +1,70 @@
+.cabeçalho h1 { /* estolo para o cabecalho com titulos h1*/
+    font-size: 40px; /* Tamanho do titulo h1 */
+}
+
+.cabeçalho img {
+    border-radius: 80%; /* torna a imagem circular */
+}
+
+.menu-de-navegacao a { /*Estilos para as hiperligações do menu de navegação */
+    text-decoration: none; /*Remove o sublinhado */
+    color: #333; /* cor*/
+    font-weight: bold; /* Texto em negrito */
+}
+
+
+body { /* Estilos para o body */
+    font-family: sans-serif; /* Tipo de fonte */
+    background-color: #fadbb5; /* Cor do fundo */
+}
+
+
+.conteudo-secundario { /* Estilos para a class conteudo sec*/
+    background-color: #DEB887	; /* Cor do fundo */
+    padding: 20px; /* espaçamento*/
+    border-radius: 20px; /* Bordas arredondadas */
+    width: 30%; /* largura */
+    float: left; /* Posicionamento */
+    margin-right: 20px; /* Dá spaçamento à direita */
+    
+}
+
+form button { /* Estilos para o botão formulário */
+    padding: 8px 16px; /* espaçamento*/
+    background-color: orange; /* Cor do fundo*/
+    color: #fff; /* Cor do texto que está presente no botao */
+    border: none; /* Tira a borda do botão */
+    border-radius: 10px; /* mete o botao arredondado */
+}
+
+
+
+footer { /* Estilos para o rodapé */
+    background-color: #50482c; /* Cor do fundo */
+    color: white;
+    text-align: center; /* alinha o texto ao centro*/
+    padding: 5px;
+    margin-top: 20px /*espacamento superior*/
+    
+}
+
+
+/*--------------------------------------------------------------*/
+
+table { /* Estilos para a tabela */
+    width: 100%;
+    border-collapse: collapse; 
+    
+    border: 2px solid #FFBF00; /* Adiciona uma borda sólida */
+}
+
+th, td {
+    padding: 10px;
+    text-align: left; /* ALINHA O texto ao centro*/
+}
+
+th {
+    background-color: #B18904;  
+}
+
+

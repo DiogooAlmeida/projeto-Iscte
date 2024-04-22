@@ -4,11 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teste HTML</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style> /*<!--Css interno, -->*/
+
+        .menu-de-navegacao li { /* este seletor refere se ao menu de navegacao que está numa class: direcionado para os elementos li*/
+            display: inline;/*faz com que os itens sejam apresentados horizontalmente em linha*/
+            margin-right: 100px; /*espacamento entre os itens*/
+        }
+
+    </style>
+
 </head>
 <body>
-    <h1>TESTE HTML</h1>
+    <h1 style="text-align: center; color: #DF7401;">TESTE HTML</h1> <!--Css inline, centrar p texto e mudar a cor para laranja-->
 
-    <header class="cabeçalho">
+
+    <header class="cabeçalho" style="background-color: #F7BE81; padding: 20px; text-align: center;border-radius: 20px;">
         <br> <!-- quebra a linha-->
         <h1>Bem vindo ao meu teste</h1>
 
@@ -31,9 +42,9 @@
 
             <ul>
                 <strong>Clubes:</strong> <!-- Fica a bolt com o strong-->
-                <li>Sporting</li> 
-                <li>Benfica</li>
-                <li>Porto</li>
+                <li style="color: green;">Sporting</li> 
+                <li style="color: red;">Benfica</li>
+                <li style="color: blue;">Porto</li>
                 <li>Se quiser saber notícias todos os dias acerca de futebol aceda <strong> <a href="https://www.record.pt/">aqui</a></strong></li>
             </ul>
     
@@ -43,6 +54,7 @@
 
     <main class="Conteudo-principal">
         <h2>Acontecimento Histórico</h2> <!-- titulo-->
+        
         <p>
             <em>Bayer Leverkusen é campeão alemão pela primeira vez na história.</em> <!--Italico-->
             O clube alemão é treinado pelo ex jogador xabi alonso que o ano passado chegou a equipa que estava a lutar para nao descer de divisao
@@ -58,11 +70,11 @@
         <h2>Por favor, preencha o formulário:</h2>
         <form action="questionario"> <!--formulario-->
             <p>
-                Declare que aceita os temos: <input type="checkbox" name="checkbox">
+                Declare que aceita os temos: <input  type="checkbox" name="checkbox">
             </p>
             <p>
                 É de que clube?
-                <input list="clubes">
+                <input style="border-radius: 10px;" list="clubes">
                 <datalist id="clubes">
                     <option value="Benfica"></option>
                     <option value="Sporting"></option>
@@ -71,16 +83,16 @@
                 
             </p>
             <p>
-                Idade: <input type="number" name="number">
+                Idade: <input style="border-radius: 10px;" type="number" name="number">
             </p>
             <p>
-                Data de Nascimento: <input type="date" name="date">
+                Data de Nascimento: <input style="border-radius: 10px;" style="border-radius: 10px;" type="date" name="date">
             </p>
             <fieldset>
                 <legend id="ancora">Dados Pessoais</legend>
-                Nome: <input type="text" name="nome"> <!--input é uma caixa de entrada que neste caso pode ter varios tipos-->
-                Email: <input type="email" name="email">
-                Contacto telefónico: <input type="number" name="nr">
+                Nome: <input style="border-radius: 10px;" type="text" name="nome"> <!--input é uma caixa de entrada que neste caso pode ter varios tipos-->
+                Email: <input  style="border-radius: 10px;" type="email" name="email">
+                Contacto telefónico: <input style="border-radius: 10px;"  type="number" name="nr">
                 <button type="submit">Ok</button> <!--Botão-->
             </fieldset>
         </form>

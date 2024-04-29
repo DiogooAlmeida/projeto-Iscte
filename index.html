@@ -5,7 +5,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Resume - Start Bootstrap Theme</title>
+        <title>Rui Ferreira - Portfólio Pessoal</title>
+        <style>
+            .portfolio {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .portfolio-item {
+                margin: 10px;
+                width: 300px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                overflow: hidden;
+            }
+            .portfolio-item img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+            .portfolio-item:hover {
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            .resume-section-content {
+                justify-content: right;
+            }
+
+        </style>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -14,23 +40,23 @@
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+
     </head>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
                 <span class="d-block d-lg-none">Clarence Taylor</span>
-                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." /></span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpeg" alt="..." /></span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Awards</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Página Inicial</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Sobre Mim</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Projetos</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Habilidades</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Contatos</a></li>
                 </ul>
             </div>
         </nav>
@@ -40,19 +66,22 @@
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
                     <h1 class="mb-0">
-                        Clarence
-                        <span class="text-primary">Taylor</span>
+                        Rui
+                        <span class="text-primary"> Quental Ferreira</span>
                     </h1>
                     <div class="subheading mb-5">
-                        3542 Berry Street · Cheyenne Wells, CO 80810 · (317) 585-8468 ·
-                        <a href="mailto:name@email.com">name@email.com</a>
+                        Rua Que Não É Verdadeira 23 · Cheyenne Wells, CO 80810 ·  912345678 ·
+                        <a href="mailto:name@email.com">rui.ferreira@gmail.com</a>
                     </div>
-                    <p class="lead mb-5">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
+                    <p class="lead mb-5">Sou um web developer experiente que consegue fazer websites em duas horas a pedido do professor Thiago! 
+                        <br>
+                        O objetivo deste site é mostrar o meu portfólio pessoal e as minhas competências.
+                    </p>
                     <div class="social-icons">
-                        <a class="social-icon" href="#!"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="social-icon" href="#!"><i class="fab fa-github"></i></a>
-                        <a class="social-icon" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="social-icon" href="#!"><i class="fab fa-facebook-f"></i></a>
+                        <a class="social-icon" href="https://www.linkedin.com/in/rui-quental-ferreira/"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="social-icon" href="https://github.com/ruiaqf"><i class="fab fa-github"></i></a>
+                        <a class="social-icon" href="https://www.instagram.com/cristiano/"><i class="fab fa-instagram"></i></a>
+                        <a class="social-icon" href="https://www.facebook.com/leomessi/"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
             </section>
@@ -60,38 +89,55 @@
             <!-- Experience-->
             <section class="resume-section" id="experience">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Experience</h2>
+                    <h2 class="mb-5">Sobre Mim</h2>
+                    <p>
+
+                        Sed rutrum scelerisque nisi, at vulputate purus hendrerit eu. Aenean pellentesque dictum mattis. Nam nec placerat metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec dui quam, finibus non ligula pulvinar, suscipit aliquam purus. Quisque bibendum ipsum sem, nec sagittis neque aliquet vel. Praesent quam mi, vulputate in porttitor id, eleifend id urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut neque felis, gravida et metus id, commodo ornare arcu.
+                    </p>
+                    <p>
+                        Nulla quis orci risus. Fusce auctor eros eget lacus congue tincidunt. Maecenas in risus eu dui ultrices lacinia at sed ante. Proin et erat tincidunt, fringilla massa in, tristique arcu. Suspendisse sed ultricies velit. Nullam aliquam rutrum hendrerit. In hac habitasse platea dictumst. Aliquam finibus tellus vitae eros sagittis blandit. Maecenas eget sagittis orci. </p>
+                    
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Senior Web Developer</h3>
-                            <div class="subheading mb-3">Intelitec Solutions</div>
-                            <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
+                            <h3 class="mb-0">Formação Académica</h3>
+                            <br>
+                            <img src="assets/img/iscte_logo.png" width="50px"> 
+
+                            <div class="subheading mb-3">Licenciatura em Tecnologias Digitais e Segurança de Informação</div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque volutpat nulla non lacus sodales, ultricies rutrum est auctor. Proin nec eros nisi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras cursus odio ut quam tincidunt tempor. Morbi molestie eleifend arcu tristique ultricies. Vestibulum id malesuada massa. Proin iaculis at enim non malesuada. Quisque facilisis, lacus vitae blandit mollis, arcu lectus lobortis ligula, quis hendrerit nisi justo sit amet ipsum. In maximus aliquet purus, eu semper ante vulputate nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ante elit, ullamcorper at nibh sit amet, accumsan tincidunt augue. </p>
+                        </div>                    </div>
+                    <img src="assets/img/isc2_logo.jpg" width="50px">
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <div class="subheading mb-3">Certificação em Cibersegurança</div>
+                            <p>Fusce tempor bibendum lorem non tristique. Integer quis augue et erat pulvinar sollicitudin et vel nibh. Nulla facilisi. Maecenas condimentum pellentesque egestas. Vestibulum ullamcorper risus at fermentum tempor. Vestibulum finibus ex neque, ac iaculis dolor auctor ut. Morbi sed viverra lorem. Vivamus at nunc sed enim fermentum semper sit amet a diam. Phasellus ornare, tortor eu porttitor ultricies, velit enim porta orci, in facilisis tellus dui vitae metus. Aliquam erat volutpat. Maecenas sit amet sapien id erat porttitor volutpat in vitae sem. Etiam vitae justo at libero finibus tincidunt eu et leo. Nam consectetur ut tortor vitae laoreet. </p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">March 2013 - Present</span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Web Developer</h3>
-                            <div class="subheading mb-3">Intelitec Solutions</div>
-                            <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</p>
+                            <h3 class="mb-0">Interesses</h3>   
+                            <br>
+                                <ul>
+                                    <li><strong>Desenvolvimento Web:</strong> Dedicação ao aprendizado contínuo de novas tecnologias, frameworks e linguagens de programação para aprimorar habilidades de desenvolvimento web.</li>
+                                    <li><strong>Música:</strong> Paixão pela criação de música em uma variedade de gêneros e estilos, incluindo composição, produção e performance ao vivo.</li>
+                                    <li><strong>Design de Interface do Usuário (UI) e Experiência do Usuário (UX):</strong> Interesse em criar interfaces intuitivas e agradáveis para melhorar a experiência do usuário em aplicativos e sites.</li>
+                                    <li><strong>Programação Criativa:</strong> Exploração de técnicas de programação criativa para desenvolver projetos interativos e artísticos que combinam código e arte.</li>
+                                    <li><strong>Open Source:</strong> Participação ativa em projetos de código aberto, contribuindo com a comunidade de desenvolvimento e colaborando em soluções inovadoras.</li>
+                                    <li><strong>Fotografia:</strong> Exploração da arte da fotografia como meio de expressão pessoal, capturando momentos e paisagens que inspiram e emocionam.</li>
+                                    <li><strong>Leitura e Escrita:</strong> Amor pela leitura de obras literárias variadas e pela escrita criativa, expressando ideias e narrativas de forma envolvente.</li>
+                                    <li><strong>Aprendizado de Idiomas:</strong> Dedicação ao aprendizado de novos idiomas para expandir horizontes culturais e facilitar a comunicação em contextos multiculturais.</li>
+                                    <li><strong>Viagens e Culturas:</strong> Interesse em explorar novos destinos e culturas, absorvendo experiências que enriquecem a perspectiva pessoal e profissional.</li>
+                                    <li><strong>Tecnologia Emergente:</strong> Curiosidade em relação a tecnologias emergentes e tendências futuras, buscando estar sempre atualizado sobre as últimas inovações no mundo da tecnologia.</li>
+                                </ul>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">December 2011 - March 2013</span></div>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Junior Web Designer</h3>
-                            <div class="subheading mb-3">Shout! Media Productions</div>
-                            <p>Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration.</p>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">July 2010 - December 2011</span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Web Design Intern</h3>
+                            <h3 class="mb-0">Experiência</h3>
                             <div class="subheading mb-3">Shout! Media Productions</div>
-                            <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p>
+                            <p> Fusce tempor bibendum lorem non tristique. Integer quis augue et erat pulvinar sollicitudin et vel nibh. Nulla facilisi. Maecenas condimentum pellentesque egestas. Vestibulum ullamcorper risus at fermentum tempor. Vestibulum finibus ex neque, ac iaculis dolor auctor ut. Morbi sed viverra lorem. Vivamus at nunc sed enim fermentum semper sit amet a diam. Phasellus ornare, tortor eu porttitor ultricies, velit enim porta orci, in facilisis tellus dui vitae metus. Aliquam erat volutpat. Maecenas sit amet sapien id erat porttitor volutpat in vitae sem. Etiam vitae justo at libero finibus tincidunt eu et leo. Nam consectetur ut tortor vitae laoreet. </p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">September 2008 - June 2010</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary">setembro 2022 - Atualmente</span></div>
                     </div>
                 </div>
             </section>
@@ -99,32 +145,51 @@
             <!-- Education-->
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Education</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">University of Colorado Boulder</h3>
-                            <div class="subheading mb-3">Bachelor of Science</div>
-                            <div>Computer Science - Web Development Track</div>
-                            <p>GPA: 3.23</p>
+                    <h2 class="mb-5">Projetos</h2>
+                    <p>Alguns dos projetos que desenvolvi ao longo da minha carreira profissional e académica.</p>
+                    <div class="portfolio">
+                        <div class="portfolio-item">
+                            <img src="assets/img/projeto1.jpg" alt="Projeto 1">
+                            <div class="portfolio-item-text">
+                                <h3>Criação do avião comercial</h3>
+                                <p>Suspendisse eros neque, accumsan sit amet turpis vel, porta pulvinar neque. Sed nec urna id libero posuere ornare. Proin id enim et sapien mollis bibendum. Quisque eu rutrum arcu, sit amet posuere arcu. Curabitur velit libero, porta et lorem non, auctor volutpat velit. Morbi sollicitudin turpis dui, ut sollicitudin elit finibus at. Aliquam sollicitudin, enim in malesuada imperdiet, lacus enim interdum magna, ac aliquam nisl ante nec lorem. In hac habitasse platea dictumst. Nam et eros eu ligula semper finibus a consequat metus. Donec sed odio mauris. Nunc ornare dignissim est nec faucibus. Morbi molestie, sapien non luctus molestie, enim massa accumsan felis, nec facilisis dui odio at purus. Nam ac massa tellus. Maecenas sit amet velit nisl. Maecenas a nisl rutrum augue finibus ultricies. Suspendisse et accumsan nulla. </p>
+                            </div>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">August 2006 - May 2010</span></div>
+                        <div class="portfolio-item">
+                            <img src="assets/img/projeto2.jpg" alt="Projeto 2">
+                            <div class="portfolio-item-text">
+                                <h3>Invenção do Iphone</h3>
+                                <p>Suspendisse eros neque, accumsan sit amet turpis vel, porta pulvinar neque. Sed nec urna id libero posuere ornare. Proin id enim et sapien mollis bibendum. Quisque eu rutrum arcu, sit amet posuere arcu. Curabitur velit libero, porta et lorem non, auctor volutpat velit. Morbi sollicitudin turpis dui, ut sollicitudin elit finibus at. Aliquam sollicitudin, enim in malesuada imperdiet, lacus enim interdum magna, ac aliquam nisl ante nec lorem. In hac habitasse platea dictumst. Nam et eros eu ligula semper finibus a consequat metus. Donec sed odio mauris. Nunc ornare dignissim est nec faucibus. Morbi molestie, sapien non luctus molestie, enim massa accumsan felis, nec facilisis dui odio at purus. Nam ac massa tellus. Maecenas sit amet velit nisl. Maecenas a nisl rutrum augue finibus ultricies. Suspendisse et accumsan nulla. </p>
+                            </div>
+                        </div>
+                        <div class="portfolio-item">
+                            <img src="assets/img/projeto3.jpg" alt="Projeto 3">
+                            <div class="portfolio-item-text">
+                                <h3>Invenção do robô que foi a Marte</h3>
+                                <p>Suspendisse eros neque, accumsan sit amet turpis vel, porta pulvinar neque. Sed nec urna id libero posuere ornare. Proin id enim et sapien mollis bibendum. Quisque eu rutrum arcu, sit amet posuere arcu. Curabitur velit libero, porta et lorem non, auctor volutpat velit. Morbi sollicitudin turpis dui, ut sollicitudin elit finibus at. Aliquam sollicitudin, enim in malesuada imperdiet, lacus enim interdum magna, ac aliquam nisl ante nec lorem. In hac habitasse platea dictumst. Nam et eros eu ligula semper finibus a consequat metus. Donec sed odio mauris. Nunc ornare dignissim est nec faucibus. Morbi molestie, sapien non luctus molestie, enim massa accumsan felis, nec facilisis dui odio at purus. Nam ac massa tellus. Maecenas sit amet velit nisl. Maecenas a nisl rutrum augue finibus ultricies. Suspendisse et accumsan nulla. </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">James Buchanan High School</h3>
-                            <div class="subheading mb-3">Technology Magnet Program</div>
-                            <p>GPA: 3.56</p>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">August 2002 - May 2006</span></div>
+<br>
+
+                    <div class="video-container">
+                        <video width="600" controls>
+                            <!-- MP4 format -->
+                            <source src="assets/video/projeto2.mp4" type="video/mp4">
+                            <!-- Ogg format -->
+                            <source src="assets/video/projeto2.ogg" type="video/ogg">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                 </div>
+            
             </section>
             <hr class="m-0" />
             <!-- Skills-->
             <section class="resume-section" id="skills">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Skills</h2>
-                    <div class="subheading mb-3">Programming Languages & Tools</div>
+                    <h2 class="mb-5">Habilidades</h2>
+                    <div class="subheading mb-3">Linguagens de programação e ferramentas</div>
                     <ul class="list-inline dev-icons">
                         <li class="list-inline-item"><i class="fab fa-html5"></i></li>
                         <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
@@ -143,80 +208,59 @@
                     <ul class="fa-ul mb-0">
                         <li>
                             <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Mobile-First, Responsive Design
+                            Design Responsivo com Foco em Dispositivos Móveis
                         </li>
                         <li>
                             <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Cross Browser Testing & Debugging
+                            Teste e Depuração em Múltiplos Navegadores
                         </li>
                         <li>
                             <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Cross Functional Teams
+                            Equipes Multifuncionais ou Equipes com Diversas Competências
                         </li>
                         <li>
                             <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Agile Development & Scrum
+                            Desenvolvimento Ágil e Scrum
                         </li>
                     </ul>
-                </div>
-            </section>
-            <hr class="m-0" />
-            <!-- Interests-->
-            <section class="resume-section" id="interests">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Interests</h2>
-                    <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
-                    <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.</p>
                 </div>
             </section>
             <hr class="m-0" />
             <!-- Awards-->
             <section class="resume-section" id="awards">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Awards & Certifications</h2>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            Google Analytics Certified Developer
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            Mobile Web Specialist - Google Certification
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            1
-                            <sup>st</sup>
-                            Place - University of Colorado Boulder - Emerging Tech Competition 2009
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            1
-                            <sup>st</sup>
-                            Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            2
-                            <sup>nd</sup>
-                            Place - University of Colorado Boulder - Emerging Tech Competition 2008
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            1
-                            <sup>st</sup>
-                            Place - James Buchanan High School - Hackathon 2006
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            3
-                            <sup>rd</sup>
-                            Place - James Buchanan High School - Hackathon 2005
-                        </li>
-                    </ul>
+                  <h2 class="mb-5">Contatos</h2>
+                  
+                  <!-- Contact information -->
+                  <div class="contact-info">
+                    <h3>Entre em Contato</h3>
+                    <p><i class="fas fa-envelope"></i> ruiaqf@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +351 123 456 789</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Rua Paredes de Coura, 58 5392-472 Ponta Delgada</p>
+                  </div>
+                  
+                  <!-- Contact form -->
+                  <div class="contact-form">
+                    <h3>Envie uma Mensagem</h3>
+                    <form>
+                      <div class="form-group">
+                        <label for="name">Nome:</label>
+                        <input type="text" class="form-control" id="name">
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email">
+                      </div>
+                      <div class="form-group">
+                        <label for="message">Mensagem:</label>
+                        <textarea class="form-control" id="message" rows="5"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                  </div>
                 </div>
             </section>
-        </div>
+      </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

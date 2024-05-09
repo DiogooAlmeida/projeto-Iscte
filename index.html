@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
+        <title>HackProof</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -14,7 +14,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
+            <a class="navbar-brand ps-3" href="index.html">HackProof</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -30,7 +30,6 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="#!">Logout</a></li>
                     </ul>
@@ -41,24 +40,12 @@
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
-                        <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
-                            </a>
-                            <div class="sb-sidenav-menu-heading">Interface</div>
+                        <div class="nav"><!--
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Layouts
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                                </nav>
-                            </div>
+                            </a>-->
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Pages
@@ -76,7 +63,7 @@
                                             <a class="nav-link" href="register.html">Register</a>
                                             <a class="nav-link" href="password.html">Forgot Password</a>
                                         </nav>
-                                    </div>
+                                    </div><!--
                                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
                                         Error
                                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -87,17 +74,17 @@
                                             <a class="nav-link" href="404.html">404 Page</a>
                                             <a class="nav-link" href="500.html">500 Page</a>
                                         </nav>
-                                    </div>
+                                    </div>-->
                                 </nav>
                             </div>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link" href="charts.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
+                                Estatística de Acessos
+                                
                             </a>
                             <a class="nav-link" href="tables.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Mensagens
+                                Histórico de Acessos
                             </a>
                         </div>
                     </div>
@@ -108,7 +95,7 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-                <main>
+                <main><!--
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Dashboard</h1>
                         <ol class="breadcrumb mb-4">
@@ -151,13 +138,13 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
-                                        Area Chart Example
+                                        Estatística do presente Mês
                                     </div>
                                     <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
                                 </div>
@@ -166,7 +153,7 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-bar me-1"></i>
-                                        Bar Chart Example
+                                        Estatística desde sempre
                                     </div>
                                     <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
                                 </div>
@@ -175,10 +162,10 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                DataTable Example
+                                Histórico de Acessos/Alertas
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
+                                <!--<table id="datatablesSimple">
                                     <thead>
                                         <tr>
                                             <th>Name</th>
@@ -656,6 +643,127 @@
                                             <td>2011/01/25</td>
                                             <td>$112,000</td>
                                         </tr>
+                                    </tbody>
+                                </table> -->
+                                
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Endereço IP</th>
+                                            <th>Dados acedidos</th>
+                                            <th>Localização</th>
+                                            <th>Hora</th>
+                                            <th>Data</th>
+                                            <th>Mais informações</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td>192.168.0.1</td>
+                                            <td>Password</td>
+                                            <td>40.7128° N, 74.0060° W - Edinburgh</td>
+                                            <td>08:30:00</td>
+                                            <td>2011/04/25</td>
+                                            <td>$320,800</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10.0.0.1</td>
+                                            <td>Cookie de sessão</td>
+                                            <td>51.5074° N, 0.1278° W -Tokyo</td>
+                                            <td>10:15:45</td>
+                                            <td>2011/07/25</td>
+                                            <td>$170,750</td>
+                                        </tr>
+                                        <tr>
+                                            <td>172.16.0.1</td>
+                                            <td>Chaves de Criptografia</td>
+                                            <td>34.0522° N, 118.2437° W- San Francisco</td>
+                                            <td>12:00:00</td>
+                                            <td>2009/01/12</td>
+                                            <td>$86,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>192.168.1.100</td>
+                                            <td>Dados de Identificação de Pagamento</td>
+                                            <td>48.8566° N, 2.3522° E- Edinburgh</td>
+                                            <td>14:20:10</td>
+                                            <td>2012/03/29</td>
+                                            <td>$433,060</td>
+                                        </tr>
+                                        <tr>
+                                            <td>192.0.2.1</td>
+                                            <td>Logs de Acesso</td>
+                                            <td>-33.8688° S, 151.2093° E- Tokyo</td>
+                                            <td>16:45:30</td>
+                                            <td>2008/11/28</td>
+                                            <td>$162,700</td>
+                                        </tr>
+                                        <tr>
+                                            <td>198.51.100.1</td>
+                                            <td>Mensagens de E-mail</td>
+                                            <td>35.6895° N, 139.6917° E- New York</td>
+                                            <td>18:10:55</td>
+                                            <td>2012/12/02</td>
+                                            <td>$372,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>203.0.113.1</td>
+                                            <td>Sales Assistant</td>
+                                            <td>37.7749° N, 122.4194° W - San Francisco</td>
+                                            <td>20:05:25</td>
+                                            <td>2012/08/06</td>
+                                            <td>$137,500</td>
+                                        </tr>
+                                        <tr>
+                                            <td>172.31.255.255</td>
+                                            <td>Integration Specialist</td>
+                                            <td>-22.9068° S, -43.1729° W - Tokyo</td>
+                                            <td>22:30:15</td>
+                                            <td>2010/10/14</td>
+                                            <td>$327,900</td>
+                                        </tr>
+                                        <tr>
+                                            <td>169.254.0.1</td>
+                                            <td>Javascript Developer</td>
+                                            <td>55.7558° N, 37.6173° E - San Francisco</td>
+                                            <td>23:59:59</td>
+                                            <td>2009/09/15</td>
+                                            <td>$205,500</td>
+                                        </tr>
+                                        <tr>
+                                            <td>192.88.99.1</td>
+                                            <td>Software Engineer</td>
+                                            <td>-1.2864° S, 36.8172° E - Edinburgh</td>
+                                            <td>09:45:20</td>
+                                            <td>2008/12/13</td>
+                                            <td>$103,600</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10.10.10.10</td>
+                                            <td>Office Manager</td>
+                                            <td>41.9028° N, 12.4964° E - London</td>
+                                            <td>11:30:15</td>
+                                            <td>2008/12/19</td>
+                                            <td>$90,560</td>
+                                        </tr>
+                                        <tr>
+                                            <td>172.16.254.254</td>
+                                            <td>Support Lead</td>
+                                            <td>-23.5505° S, -46.6333° W - Edinburgh</td>
+                                            <td>13:05:40</td>
+                                            <td>2013/03/03</td>
+                                            <td>$342,000</td>
+                                        </tr>   
                                     </tbody>
                                 </table>
                             </div>

@@ -79,6 +79,27 @@
   --bs-highlight-bg: #fff3cd;
 }
 
+
+.img-logo img{
+  position: relative;
+  width: 700px; /* Ajuste o tamanho do container conforme necessário */
+  height: 200px; /* Ajuste o tamanho do container conforme necessário */
+}
+
+.img-logo img {
+  position: absolute;
+  top: 0px; /* Ajuste a distância do topo conforme necessário */
+  left: 120px; /* Ajuste a distância da esquerda conforme necessário */
+  width: 100px; /* Ajuste a largura da imagem conforme necessário */
+  height: auto; /* Mantém a proporção da imagem */
+  margin-right: 50px; /* Ajuste a margem direita conforme necessário */
+  padding: 5px; /* Ajuste o preenchimento conforme necessário */
+}
+
+
+
+
+
 *,
 *::before,
 *::after {

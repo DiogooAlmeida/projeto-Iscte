@@ -7,12 +7,12 @@ var ctx = document.getElementById("myBarChart");
 var myLineChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["January", "February", "March", "April", "May", "June"],
+    labels: ["2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
     datasets: [{
-      label: "Revenue",
+      label: "Acessos",
       backgroundColor: "rgba(2,117,216,1)",
       borderColor: "rgba(2,117,216,1)",
-      data: [4215, 5312, 6251, 7841, 9821, 14984],
+      data: [10, 40, 20, 10, 10, 8, 18, 21, 14, 29, 30, 17, 7],
     }],
   },
   options: {
@@ -31,8 +31,9 @@ var myLineChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           min: 0,
-          max: 15000,
-          maxTicksLimit: 5
+          max: 50, // Alterando o máximo para 50
+          stepSize: 5, // Adicionando isso para garantir intervalos de 5 em 5
+          maxTicksLimit: 10
         },
         gridLines: {
           display: true

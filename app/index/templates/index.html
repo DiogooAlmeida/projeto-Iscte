@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+    {% block titulo %}
+    Página Inicial do meu Projeto
+    {% endblock titulo %}
+
+    {% block conteudo %}
+    <main class="form-signin w-100 m-auto">
+        <form method="post">
+        {% csrf_token %}
+        {% for message in messages %}
+          <div class="alert alert-danger">
+            {{message}}
+          </div>
+        {% endfor %}        
+          <img class="mb-4" src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="20%">
+          <img class="mb-4" src="https://www.svgrepo.com/show/353659/docker-icon.svg" alt="" width="20%">
+          <img class="mb-4" src="https://openwhisk.apache.org/images/deployments/logo-docker-compose-notext.png" alt="" width="20%" >
+          <img class="mb-4" src="https://www.svgrepo.com/show/373924/nginx.svg" alt="" width="20%" >
+          <img class="mb-4" src="https://e7.pngegg.com/pngimages/490/894/png-clipart-gunicorn-web-server-gateway-interface-software-developer-unicorn-logo-horse-mammal.png" alt="" width="20%" >
+          <img class="mb-4" src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="" width="15%" >
+          <img class="mb-4" src="https://www.svgrepo.com/show/303251/mysql-logo.svg" alt="" width="30%" >
+          <img class="mb-4" src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" width="15%" >
+
+          <h1 class="h3 mb-3 fw-normal text-center">Seu Projeto</h1>
+      
+          <div class="row">
+            <div class="col-6">
+                <a class="btn btn-warning w-100 py-2" href="{% url 'cadastrar_usuario' %}">Sign up</a>
+            </div>
+            <div class="col-6">
+                <a class="btn btn-primary w-100 py-2" href="{% url 'logar_usuario' %}">Sign in</a>
+            </div>
+          </div>
+        </form>
+      </main>
+      {% endblock conteudo %}

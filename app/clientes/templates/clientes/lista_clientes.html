@@ -1,0 +1,34 @@
+{% extends "clientes/base.html" %}
+
+{% block titulo %}
+Listagem de clientes
+{% endblock titulo %}
+
+
+{% block conteudo %}
+<table class="table">
+    <thead>
+    <tr>
+    <th>Nome</th>
+    <th>Data Nascimento</th>
+    <th>Sexo</th>
+    <th>Ações</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for i in clientes %}
+    <tr>
+        <td><a href="{% url 'listar_cliente_id' i.id %}">{{i.nome}}</a></td>
+        <td>{{i.data_nascimento | date:"d M Y"}}</td>
+        <td>{{i.sexo}}</td>
+        <td>
+            <a href="{% url 'editar_cliente' i.id %}">Editar</a>
+            <a href="{% url 'remover_cliente' i.id %}">Remover</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'cadastrar_cliente'%}"><button class="btn btn-primary">Cadastrar</button></a>
+{% endblock conteudo %}

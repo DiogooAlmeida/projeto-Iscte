@@ -1,0 +1,338 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>HackProof</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="{% static 'css/styles.css'%}" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <link rel="icon" href="assets/img/favicon.png" type="image/x-icon">
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">HackProof</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Profile</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav"><!--
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Layouts
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Pages
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        Authentication
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="login.html">Login</a>
+                                            <a class="nav-link" href="register.html">Register</a>
+                                            <a class="nav-link" href="password.html">Forgot Password</a>
+                                        </nav>
+                                    </div>
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                        Error
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="401.html">401 Page</a>
+                                            <a class="nav-link" href="404.html">404 Page</a>
+                                            <a class="nav-link" href="500.html">500 Page</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+                            </div>-->
+                            <a class="nav-link" href="charts.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Estatística de Acessos
+                                
+                            </a>
+                            <a class="nav-link" href="tables.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Histórico de Acessos
+                            </a>
+                            <a class="nav-link" href="dicas.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Dicas
+                            </a>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Pages
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        Authentication
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="login.html">Login</a>
+                                            <a class="nav-link" href="register.html">Register</a>
+                                            <a class="nav-link" href="password.html">Forgot Password</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        HackProof User
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Dashboard</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                        
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-area me-1"></i>
+                                        Estatística do presente Mês
+                                    </div>
+                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-bar me-1"></i>
+                                        Estatística desde sempre
+                                    </div>
+                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Histórico de Acessos/Alertas
+
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Endereço IP</th>
+                                            <th>Dados acedidos</th>
+                                            <th>Localização</th>
+                                            <th>Hora</th>
+                                            <th>Data</th>
+                                            <th>Mais informações</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td>192.168.0.1</td>
+                                            <td>Password</td>
+                                            <td>40.7128° N, 74.0060° W - Edinburgh</td>
+                                            <td>08:30:00</td>
+                                            <td>2011/04/25</td>
+                                            <td>$320,800</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10.0.0.1</td>
+                                            <td>Cookie de sessão</td>
+                                            <td>51.5074° N, 0.1278° W -Tokyo</td>
+                                            <td>10:15:45</td>
+                                            <td>2011/07/25</td>
+                                            <td>$170,750</td>
+                                        </tr>
+                                        <tr>
+                                            <td>172.16.0.1</td>
+                                            <td>Chaves de Criptografia</td>
+                                            <td>34.0522° N, 118.2437° W- San Francisco</td>
+                                            <td>12:00:00</td>
+                                            <td>2009/01/12</td>
+                                            <td>$86,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>192.168.1.100</td>
+                                            <td>Dados de Identificação de Pagamento</td>
+                                            <td>48.8566° N, 2.3522° E- Edinburgh</td>
+                                            <td>14:20:10</td>
+                                            <td>2012/03/29</td>
+                                            <td>$433,060</td>
+                                        </tr>
+                                        <tr>
+                                            <td>192.0.2.1</td>
+                                            <td>Logs de Acesso</td>
+                                            <td>-33.8688° S, 151.2093° E- Tokyo</td>
+                                            <td>16:45:30</td>
+                                            <td>2008/11/28</td>
+                                            <td>$162,700</td>
+                                        </tr>
+                                        <tr>
+                                            <td>198.51.100.1</td>
+                                            <td>Mensagens de E-mail</td>
+                                            <td>35.6895° N, 139.6917° E- New York</td>
+                                            <td>18:10:55</td>
+                                            <td>2012/12/02</td>
+                                            <td>$372,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>203.0.113.1</td>
+                                            <td>Sales Assistant</td>
+                                            <td>37.7749° N, 122.4194° W - San Francisco</td>
+                                            <td>20:05:25</td>
+                                            <td>2012/08/06</td>
+                                            <td>$137,500</td>
+                                        </tr>
+                                        <tr>
+                                            <td>172.31.255.255</td>
+                                            <td>Integration Specialist</td>
+                                            <td>-22.9068° S, -43.1729° W - Tokyo</td>
+                                            <td>22:30:15</td>
+                                            <td>2010/10/14</td>
+                                            <td>$327,900</td>
+                                        </tr>
+                                        <tr>
+                                            <td>169.254.0.1</td>
+                                            <td>Javascript Developer</td>
+                                            <td>55.7558° N, 37.6173° E - San Francisco</td>
+                                            <td>23:59:59</td>
+                                            <td>2009/09/15</td>
+                                            <td>$205,500</td>
+                                        </tr>
+                                        <tr>
+                                            <td>192.88.99.1</td>
+                                            <td>Software Engineer</td>
+                                            <td>-1.2864° S, 36.8172° E - Edinburgh</td>
+                                            <td>09:45:20</td>
+                                            <td>2008/12/13</td>
+                                            <td>$103,600</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10.10.10.10</td>
+                                            <td>Office Manager</td>
+                                            <td>41.9028° N, 12.4964° E - London</td>
+                                            <td>11:30:15</td>
+                                            <td>2008/12/19</td>
+                                            <td>$90,560</td>
+                                        </tr>
+                                        <tr>
+                                            <td>172.16.254.254</td>
+                                            <td>Support Lead</td>
+                                            <td>-23.5505° S, -46.6333° W - Edinburgh</td>
+                                            <td>13:05:40</td>
+                                            <td>2013/03/03</td>
+                                            <td>$342,000</td>
+                                        </tr>   
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="container-fluid px-4">
+                        <div class="card mb-4">
+                            
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-body" style="line-height: 1.6; font-family: Arial, sans-serif;">
+                                <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Dicas de Segurança Informática</h2>
+                                <ul style="list-style-type: none; margin-left: 1.5rem; padding-left: 0;">
+                                    <li style="padding-bottom: 0.5rem; border-bottom: 1px solid #ccc;"><strong>Mantenha o software atualizado:</strong> Mantenha o seu sistema operativo, navegadores, antivírus e outros softwares atualizados. As atualizações muitas vezes corrigem vulnerabilidades de segurança.</li>
+                                    <li style="padding-bottom: 0.5rem; border-bottom: 1px solid #ccc;"><strong>Use passwords fortes e únicas:</strong> Crie passwords longas e complexas, utilizando uma combinação de letras maiúsculas e minúsculas, números e símbolos. Evite password óbvias como datas de nascimento ou palavras comuns.</li>
+                                    <li style="padding-bottom: 0.5rem; border-bottom: 1px solid #ccc;"><strong>Ative a autenticação de dois fatores (2FA):</strong> Quando disponível, ative a autenticação de dois fatores para as suas contas online. Isso adiciona uma camada extra de segurança, exigindo um código adicional além da password para fazer login.</li>
+                                    <li style="padding-bottom: 0.5rem; border-bottom: 1px solid #ccc;"><strong>Tenha cuidado com links e anexos em e-mails:</strong> Não clique em links ou abra anexos de e-mails suspeitos ou de remetentes desconhecidos. Eles podem conter malware ou phishing.</li>
+                                    <li style="padding-bottom: 0.5rem; border-bottom: 1px solid #ccc;"><strong>Use uma VPN em redes Wi-Fi públicas:</strong> Ao conectar-se a redes Wi-Fi públicas, use uma VPN (Rede Virtual Privada) para criptografar os seus dados e proteger a sua privacidade.</li>
+                                    <li style="padding-bottom: 0.5rem; border-bottom: 1px solid #ccc;"><strong>Faça backup regularmente:</strong> Faça backup dos seus ficheiros importantes regularmente num dispositivo externo ou na Cloud. Isso pode proteger os seus dados em caso de ransomware ou falha no hardware.</li>
+                                    <li style="padding-bottom: 0.5rem; border-bottom: 1px solid #ccc;"><strong>Fique atento a mensagens de phishing:</strong> Esteja ciente de tentativas de phishing, onde os atacantes tentam enganá-lo para revelar informações pessoais ou financeiras. Desconfie de e-mails, mensagens ou telefonemas solicitando informações confidenciais.</li>
+                                    <li style="padding-bottom: 0.5rem; border-bottom: 1px solid #ccc;"><strong>Use o bom senso nas redes sociais:</strong> Tenha cuidado com as informações que você compartilha nas redes sociais. Evite publicar informações sensíveis, como detalhes da sua vida pessoal, endereço ou informações de contacto.</li>
+                                    <li style="padding-bottom: 0.5rem; border-bottom: 1px solid #ccc;"><strong>Bloqueie o seu dispositivo quando não estiver em uso:</strong> Bloqueie sempre o seu computador, tablet ou smartphone quando não estiver a utilizar, usando uma senha, PIN ou biometria.</li>
+                                    <li style="padding-bottom: 0.5rem; border-bottom: 1px solid #ccc;"><strong>Educate-se continuamente:</strong> Mantenha-se atualizado sobre as últimas ameaças e melhore práticas de segurança informática. A educação contínua é fundamental para proteger sua identidade e dados online.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                            
+                            
+                            
+                        </div>
+                        </div>
+                        
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+    </body>
+</html>

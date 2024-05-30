@@ -28,9 +28,6 @@ def login(request):
             return HttpResponse(f"não autenticado")
             
 
-            
-        
-
 
 def register(request):
     if request.method == "GET":

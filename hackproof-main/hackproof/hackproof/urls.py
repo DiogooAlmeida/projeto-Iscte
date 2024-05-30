@@ -19,15 +19,6 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("index.html/", include("polls.urls")),
     path("", include("polls.urls")),
-    path("login/", include("polls.urls")),
-    path("login/register/", include("polls.urls")),
-    path("tables/", include("polls.urls")),
-    path("dicas/", include("polls.urls")),
-    path("password/", include("polls.urls")),
-    path("charts/", include("polls.urls")),
-    path("401/", include("polls.urls")),
-    path("404/", include("polls.urls")),
-    path("500/", include("polls.urls")),
+    
 ]

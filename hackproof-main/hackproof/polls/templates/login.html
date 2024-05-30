@@ -42,15 +42,15 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Bem-Vindo de Volta!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" action="{% url 'login' %}" method="POST">{% csrf_token %}
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Insira o seu E-mail...">
+                                            <input type="text" class="form-control form-control-user"
+                                                name="username" 
+                                                placeholder="Insira o seu username...">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                name="password" placeholder="Password">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">

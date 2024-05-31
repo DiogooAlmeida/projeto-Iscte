@@ -16,30 +16,48 @@ Dicas
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">apagar?</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Apagar?</h6>
                         </div>
                         <div class="card-body">
-                            <div class="card-body">
-                                <div class="card mb-4">
-                            <div class="card-body" style="line-height: 1.6; font-family: Arial, sans-serif;">
-                                <ul style="list-style-type: disc; margin-left: 1.9rem;">
-                                    <li><strong>Mantenha o software atualizado:</strong> Mantenha o seu sistema operativo, navegadores, antivírus e outros softwares atualizados. As atualizações muitas vezes corrigem vulnerabilidades de segurança.</li>
-                                    <li><strong>Use passwords fortes e únicas:</strong> Crie passwords longas e complexas, utilizando uma combinação de letras maiúsculas e minúsculas, números e símbolos. Evite password óbvias como datas de nascimento ou palavras comuns.</li>
-                                    <li><strong>Ative a autenticação de dois fatores (2FA):</strong> Quando disponível, ative a autenticação de dois fatores para as suas contas online. Isso adiciona uma camada extra de segurança, exigindo um código adicional além da password para fazer login.</li>
-                                    <li><strong>Tenha cuidado com links e anexos em e-mails:</strong> Não clique em links ou abra anexos de e-mails suspeitos ou de remetentes desconhecidos. Eles podem conter malware ou phishing.</li>
-                                    <li><strong>Use uma VPN em redes Wi-Fi públicas:</strong> Ao conectar-se a redes Wi-Fi públicas, use uma VPN (Rede Virtual Privada) para criptografar os seus dados e proteger a sua privacidade.</li>
-                                    <li><strong>Faça backup regularmente:</strong> Faça backup dos seus ficheiros importantes regularmente num dispositivo externo ou na Cloud. Isso pode proteger os seus dados em caso de ransomware ou falha no hardware.</li>
-                                    <li><strong>Fique atento a mensagens de phishing:</strong> Esteja ciente de tentativas de phishing, onde os atacantes tentam enganá-lo para revelar informações pessoais ou financeiras. Desconfie de e-mails, mensagens ou telefonemas solicitando informações confidenciais.</li>
-                                    <li><strong>Use o bom senso nas redes sociais:</strong> Tenha cuidado com as informações que você compartilha nas redes sociais. Evite publicar informações sensíveis, como detalhes da sua vida pessoal, endereço ou informações de contacto.</li>
-                                    <li><strong>Bloqueie o seu dispositivo quando não estiver em uso:</strong> Bloqueie sempre o seu computador, tablet ou smartphone quando não estiver a utilizar, usando uma senha, PIN ou biometria.</li>
-                                    <li><strong>Educate-se continuamente:</strong> Mantenha-se atualizado sobre as últimas ameaças e melhore práticas de segurança informática. A educação contínua é fundamental para proteger sua identidade e dados online.</li>
-                                </ul>
-                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Description</th>
+                                            <th>Image</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for article in page_obj %}
+                                            <tr>
+                                                <td><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></td>
+                                                <td>{{ article.description }}</td>
+                                                <td><img src="{{ article.urlToImage }}" alt="{{ article.title }}" width="200"></td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div class="pagination">
+                                    <span class="step-links">
+                                        {% if page_obj.has_previous %}
+                                            <a href="?page=1">&laquo; first</a>
+                                            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                                        {% endif %}
+
+                                        <span class="current">
+                                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                                        </span>
+
+                                        {% if page_obj.has_next %}
+                                            <a href="?page={{ page_obj.next_page_number }}">next</a>
+                                            <a href="?page={{ page_obj.paginator.num_pages }}">&raquo; last</a>
+                                        {% endif %}
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                </div>
                 <!-- /.container-fluid -->
 
             </div>

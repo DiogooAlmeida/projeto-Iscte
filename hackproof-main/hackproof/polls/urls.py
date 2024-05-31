@@ -3,14 +3,14 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path("", views.index, name="index"),
-    path("login.html", views.login, name="login"),
-    path("register.html", views.register, name="register"),
-    path("tables.html", views.tables, name="table"),
-    path("dicas.html", views.dicas, name="dicas"),
-    path("password.html", views.password, name="password"),
-    path("charts.html", views.charts, name="charts"),
-    path("401.html", views.page_401, name="401"),
-    path("404.html", views.page_404, name="404"),
-    path("500.html", views.page_500, name="500"),
+    path('', views.index, name='index'),
+    path('login/', views.login, name='login'),
+    path('login/register/', views.register, name='register'),
+    path('tables/', views.tables, name='tables'),
+    path('dicas/', views.dicas, name='dicas'),
+    path('password/', views.password, name='password'),
+    path('charts/', views.charts, name='charts'),
+    path('401/', views.page_401, name='error_401'),
+    path('404/', views.page_404, name='error_404'),
+    path('500/', views.page_500, name='error_500'),
 ]

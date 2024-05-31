@@ -18,7 +18,7 @@ def dicas(request):
     return render(request, "dicas.html")
 
 def password(request):
-    return render(request, "password.html")
+    return render(request, "forgot-password.html")
 
 def charts(request):
     return render(request, "charts.html")

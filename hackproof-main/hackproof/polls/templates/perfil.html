@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}
+Perfil
+{% endblock %}
+
+{% block content %}
+
+                    <!-- Content Row -->
+                    <div class="row">
+                        <!-- Profile Info -->
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header -->
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Informações do Perfil</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <h4>Douglas McGee</h4>
+                                            <p>Email: douglas.mcgee@example.com</p>
+                                            <p>Telefone: +351 123 456 789</p>
+                                            <p>Nome de Utilizador: douglas_mcgee</p>
+                                            <!-- Edit Profile Button -->
+                                            <a href="/definicoes/" class="btn btn-primary mt-3">Editar Perfil</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Edit Profile Form - Commented Out
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Editar Perfil</h6>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="profileEmail">Novo E-mail</label>
+                                            <input type="email" class="form-control" id="profileEmail" placeholder="Novo Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="profilePhone">Novo Número de Telemóvel</label>
+                                            <input type="tel" class="form-control" id="profilePhone" placeholder="Novo Número de Telefone">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="profileUsername">Novo Nome de Utilizador</label>
+                                            <input type="text" class="form-control" id="profileUsername" placeholder="Novo Nome de Usuário">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                                    </form>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                    <!-- End Content Row -->
+                </div>
+                <!-- End Container Fluid -->
+            </div>
+            <!-- End Main Content -->
+        </div>
+        <!-- End Content Wrapper -->
+    </div>
+    <!-- End Page Wrapper -->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+
+{% endblock content %}

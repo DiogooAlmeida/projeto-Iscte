@@ -13,4 +13,8 @@ urlpatterns = [
     path('401/', views.page_401, name='error_401'),
     path('404/', views.page_404, name='error_404'),
     path('500/', views.page_500, name='error_500'),
+    path('definicoes/', views.definicoes, name='definicoes'),
+    path('logout/', views.logout, name='logout'),
+    path('perfil/', views.perfil, name='perfil'),
+
 ]

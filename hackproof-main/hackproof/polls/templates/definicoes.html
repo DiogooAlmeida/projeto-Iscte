@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+
+{% block title %}
+Definições
+{% endblock %}
+
+{% block content %}
+
+
+{% load static %}
+
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Definições da Conta</h1>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+                        <!-- Settings Form -->
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header -->
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Gerir Conta</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div id="accordion">
+                                        <!-- Change Password -->
+                                        <div class="card">
+                                            <div class="card-header" id="headingPassword">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapsePassword" aria-expanded="true" aria-controls="collapsePassword">
+                                                        Alterar Password
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="collapsePassword" class="collapse" aria-labelledby="headingPassword" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <label for="currentPassword">Password Atual</label>
+                                                            <input type="password" class="form-control" id="currentPassword" placeholder="Senha Atual">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="newPassword">Nova Password</label>
+                                                            <input type="password" class="form-control" id="newPassword" placeholder="Nova Senha">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="confirmPassword">Confirmar Nova Password</label>
+                                                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmar Nova Senha">
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">Alterar Password</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Change Email -->
+                                        <div class="card">
+                                            <div class="card-header" id="headingEmail">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseEmail" aria-expanded="true" aria-controls="collapseEmail">
+                                                        Alterar E-mail
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="collapseEmail" class="collapse" aria-labelledby="headingEmail" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <label for="newEmail">Novo E-mail</label>
+                                                            <input type="email" class="form-control" id="newEmail" placeholder="Novo Email">
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">Alterar E-mail</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Change Phone Number -->
+                                        <div class="card">
+                                            <div class="card-header" id="headingPhone">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapsePhone" aria-expanded="true" aria-controls="collapsePhone">
+                                                        Alterar Número de Telemóvel
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="collapsePhone" class="collapse" aria-labelledby="headingPhone" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <label for="newPhone">Novo Número de Telemóvel</label>
+                                                            <input type="tel" class="form-control" id="newPhone" placeholder="Novo Número de Telefone">
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">Alterar Número de Telemóvel</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Change Username -->
+                                        <div class="card">
+                                            <div class="card-header" id="headingUsername">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseUsername" aria-expanded="true" aria-controls="collapseUsername">
+                                                        Alterar Nome de Utilizador
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="collapseUsername" class="collapse" aria-labelledby="headingUsername" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <label for="newUsername">Novo Nome de Utilizador</label>
+                                                            <input type="text" class="form-control" id="newUsername" placeholder="Novo Nome de Usuário">
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">Alterar Nome de Utilizador</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Notification Preferences -->
+                                        <div class="card">
+                                            <div class="card-header" id="headingNotifications">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseNotifications" aria-expanded="true" aria-controls="collapseNotifications">
+                                                        Preferências de Notificação
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="collapseNotifications" class="collapse" aria-labelledby="headingNotifications" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <label for="notificationPreferences">Preferências de Notificação</label>
+                                                            <select class="form-control" id="notificationPreferences">
+                                                                <option>Email</option>
+                                                                <option>SMS</option>
+                                                                <option>Push Notifications</option>
+                                                            </select>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">Salvar Preferências</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Content Row -->
+                </div>
+                <!-- End Container Fluid -->
+            </div>
+            <!-- End Main Content -->
+        </div>
+        <!-- End Content Wrapper -->
+    </div>
+    <!-- End Page Wrapper -->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+
+
+    {% endblock content %}

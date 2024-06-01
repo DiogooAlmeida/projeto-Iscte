@@ -1,6 +1,7 @@
 {% load static %}
 {% load allauth i18n %}
 {% load allauth account %}
+{% load socialaccount %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +19,6 @@
     <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
     <link rel="icon" href="{% static 'img/fundoazul.png' %}" sizes="192x192" type="image/png">
 </head>
-{% block content %}
 <body class="bg-gradient-primary d-flex align-items-center justify-content-center" style="height: 100vh;">
     
     <div class="container">
@@ -33,37 +33,32 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Registar Conta</h1>
                                     </div>
-                                    {% url 'account_signup' as signup_url %}
-                                    {% element form method="post" action=signup_url tags="entrance,signup" %}
-                                        {% slot body %}
-                                            {% csrf_token %}
-                                            <div class="form-group">
-                                                <input type="text" name="username" class="form-control form-control-user" id="username" placeholder="{% trans "Username" %}" required>
+                                    <form id="signup_form" method="post" action="{% url 'account_signup' %}">{% csrf_token %}
+                                        <div class="form-group">
+                                            <input type="text" name="username" class="form-control form-control-user" id="login" placeholder="{% trans 'Username' %}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" name="email" class="form-control form-control-user" id="email" placeholder="{% trans 'Endereço E-mail' %}" required>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input type="password" name="password1" class="form-control form-control-user" id="password1" placeholder="{% trans 'Password' %}" required>
                                             </div>
-                                            <div class="form-group">
-                                                <input type="email" name="email" class="form-control form-control-user" id="email" placeholder="{% trans "Endereço E-mail" %}" required>
+                                            <div class="col-sm-6">
+                                                <input type="password" name="password2" class="form-control form-control-user" id="password2" placeholder="{% trans 'Repetir Password' %}" required>
                                             </div>
-                                            <div class="form-group row">
-                                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="password" name="password" class="form-control form-control-user" id="password1" placeholder="{% trans "Password" %}" required>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <input type="password" name="password2" class="form-control form-control-user" id="password2" placeholder="{% trans "Repetir Password" %}" required>
-                                                </div>
-                                            </div>
-                                            {{ redirect_field }}
-                                            <button type="submit" class="btn btn-primary btn-user btn-block">
-                                                {% trans "Registar Conta" %}
-                                            </button>
-                                            <hr>
-                                            <button type="button" class="btn btn-google btn-user btn-block">
-                                                <i class="fab fa-google fa-fw"></i> {% trans "Registar com o Google" %}
-                                            </button>
-                                            <button type="button" class="btn btn-facebook btn-user btn-block">
-                                                <i class="fab fa-facebook-f fa-fw"></i> {% trans "Registar com o Facebook" %}
-                                            </button>
-                                        {% endslot %}
-                                    {% endelement %}
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block" value="signup">
+                                            {% trans "Registar Conta" %}
+                                        </button>
+                                    </form>
+                                    <hr>
+                                    <a href="{% provider_login_url 'google' process='login' %}" class="btn btn-google btn-user btn-block">
+                                        <i class="fab fa-google fa-fw"></i> {% trans "Registar com o Google" %}
+                                    </a>
+                                    <a href="#" class="btn btn-facebook btn-user btn-block">
+                                        <i class="fab fa-facebook-f fa-fw"></i> {% trans "Registar com o Facebook" %}
+                                    </a>
                                     <hr>
                                     <div class="text-center">
                                         <a class="small" href="{% url 'account_reset_password' %}">{% trans "Esqueceste-te da Password?" %}</a>
@@ -89,6 +84,4 @@
     <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
 
 </body>
-{% endblock content %}
 </html>
-

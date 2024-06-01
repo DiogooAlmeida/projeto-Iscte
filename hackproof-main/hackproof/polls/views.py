@@ -43,3 +43,6 @@ def logout(request):
 
 def perfil(request):
     return render(request, "perfil.html")
+
+def main_page(request):
+    return render(request, "main_page.html")

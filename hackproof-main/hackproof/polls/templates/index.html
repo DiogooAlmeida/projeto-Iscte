@@ -1,124 +1,117 @@
-{% extends "base.html" %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
-{% block title %}
-Página Principal
-{% endblock %}
-
 {% block content %}
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Escrever algo</h1>
-                        <!--<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
-                    </div>
-                    <!-- Content Row -->
-
-                    <div class="row">
-                        <!-- Area Chart -->
-                        <div class="col-xl-8 col-lg-7">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary"> Estatística do presente Mês </h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pie Chart -->
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary"> Tipos de Acesos</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart"></canvas>
-                                    </div>
-                                    <div class="mt-4 text-center small">
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Origem Desconhecida
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Acessos Autorizados
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Acessos Não Autorizados
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
-
-
-                            <!-- Approach -->
-                            <div class="card shadow mb-4" style="width: 200%;"> <!-- Ajuste a altura conforme necessário -->
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Dicas e Boas Práticas</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card mb-4">
-                                <div class="card-body" style="line-height: 1.6; font-family: Arial, sans-serif;">
-                                    <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Dicas de Segurança Informática</h2>
-                                    <ul style="list-style-type: disc; margin-left: 1.9rem;">
-                                        <li><strong>Mantenha o software atualizado:</strong> Mantenha o seu sistema operativo, navegadores, antivírus e outros softwares atualizados. As atualizações muitas vezes corrigem vulnerabilidades de segurança.</li>
-                                        <li><strong>Use passwords fortes e únicas:</strong> Crie passwords longas e complexas, utilizando uma combinação de letras maiúsculas e minúsculas, números e símbolos. Evite password óbvias como datas de nascimento ou palavras comuns.</li>
-                                        <li><strong>Ative a autenticação de dois fatores (2FA):</strong> Quando disponível, ative a autenticação de dois fatores para as suas contas online. Isso adiciona uma camada extra de segurança, exigindo um código adicional além da password para fazer login.</li>
-                                        <li><strong>Tenha cuidado com links e anexos em e-mails:</strong> Não clique em links ou abra anexos de e-mails suspeitos ou de remetentes desconhecidos. Eles podem conter malware ou phishing.</li>
-                                        <li><strong>Use uma VPN em redes Wi-Fi públicas:</strong> Ao conectar-se a redes Wi-Fi públicas, use uma VPN (Rede Virtual Privada) para criptografar os seus dados e proteger a sua privacidade.</li>
-                                        <li><strong>Faça backup regularmente:</strong> Faça backup dos seus ficheiros importantes regularmente num dispositivo externo ou na Cloud. Isso pode proteger os seus dados em caso de ransomware ou falha no hardware.</li>
-                                        <li><strong>Fique atento a mensagens de phishing:</strong> Esteja ciente de tentativas de phishing, onde os atacantes tentam enganá-lo para revelar informações pessoais ou financeiras. Desconfie de e-mails, mensagens ou telefonemas solicitando informações confidenciais.</li>
-                                        <li><strong>Use o bom senso nas redes sociais:</strong> Tenha cuidado com as informações que você compartilha nas redes sociais. Evite publicar informações sensíveis, como detalhes da sua vida pessoal, endereço ou informações de contacto.</li>
-                                        <li><strong>Bloqueie o seu dispositivo quando não estiver em uso:</strong> Bloqueie sempre o seu computador, tablet ou smartphone quando não estiver a utilizar, usando uma senha, PIN ou biometria.</li>
-                                        <li><strong>Educate-se continuamente:</strong> Mantenha-se atualizado sobre as últimas ameaças e melhore práticas de segurança informática. A educação contínua é fundamental para proteger sua identidade e dados online.</li>
-                                    </ul>
-                                </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>HackProof</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href= "{% static 'css/styles_first_page.css'%}" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+            <div class="container px-4">
+                <img src="{% static 'img/logo sem letras.png'%}" alt="Logo" style="height: 100px; margin-right: 0px; margin-top: -5px;">
+                <a class="navbar-brand" style="margin-bottom: 15px"; href="#page-top">HackProof</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" style="margin-right: 500px;"id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto" style="margin-bottom: 15px">
+                        <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services">Serviços</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login/">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="register/" style="margin-right: 20px;">Registar</a></li>
+                    </ul>
                 </div>
-                <!-- /.container-fluid -->
-
             </div>
-            <!-- End of Main Content -->
-
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark text-white" style="margin-top: 100px">
+            <div class="container px-4">
+                <h1 class="fw-bolder">Bem-vindo ao HackProof</h1>
+                <p class="lead">A functional Bootstrap 5 boilerplate for one page scrolling websites</p>
+                <a class="btn btn-lg btn-light" href="login.html">Vamos começar!</a>
+                <img src="{% static 'img/logo sem letras.png'%}" alt="Logo" style="height: 500px; margin-left: 800px; margin-top: -300px;">
+            </div>
+        </header>
+        <!-- Services section-->
+        <section class="bg-light" id="services">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center text-center" style="margin-top: -70px; margin-bottom: 40px;">
+                    <div class="col-lg-8">
+                        <h1>Serviços Prestados</h1>
+                    </div>
+                </div>
+                <div class="row gx-4 justify-content-center text-center">
+                    <div class="col-md-3">
+                        <div class="service-box">
+                            <h3>Alertas de acessos</h3>
+                        </div>
+                        <class="nav-item"><a class="nav-link"href="#servico1" style="margin-right: 20px;">Sabe mais!</a></li>    
+                    </div>
+                    <div class="col-md-3">
+                        <div class="service-box">
+                            <h3>Relatório mensal de acessos</h3>
+                        </div>
+                        <class="nav-item"><a class="nav-link"href="#servico2" style="margin-right: 20px;">Sabe mais!</a></li>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="service-box">
+                            <h3>Verificar o local de acesso</h3>
+                        </div>
+                        <class="nav-item"><a class="nav-link"href="#servico3" style="margin-right: 20px;">Sabe mais!</a></li>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bg-dark text-white" id="servico1">
+            <div class="container px-4" style="margin-left: 70px; margin-bottom: -50px;">
+                <div class="row gx-4">
+                    <div class="col-lg-8" style="margin-top: -40px;">
+                        <h2>Alertas de acessos</h2>
+                        <p class="lead" style="margin-top: 50px;">O sistema desenvolvido, emite alertas quando as pastas/ficheiros escolhidos pelo utilizador são acedidos.</p>
+                        <img src="{% static 'img/6360061.png'%}" alt="Logo" style="height: 300px; margin-left: 1100px; margin-top: -200px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bg-dark text-white" id="servico2">
+            <div class="container px-4" style="margin-left: 70px; margin-bottom: -50px;">
+                <div class="row gx-4">
+                    <div class="col-lg-8" style="margin-top: -40px;">
+                        <h2>Relatório mensal de acessos</h2>
+                        <p class="lead" style="margin-top: 50px;">O sistema desenvolvido, emite alertas quando as pastas/ficheiros escolhidos pelo utilizador são acedidos.</p>
+                        <img src="{%static 'img/4024382.png'%}" alt="Logo" style="height: 300px; margin-left: 1100px; margin-top: -200px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About section-->
+        <section id="about">
+            <div class="container px-4" style="margin-left: 70px; margin-bottom: -70px;">
+                <div class="row gx-4">
+                    <div class="col-lg-8" style="margin-top: -40px;">
+                        <h2>Sobre o HackProof</h2>
+                        <p class="lead" style="margin-top: 50px;">Somos um grupo da Licenciatura de Tecnologias Digitais e Segurança da Informação que tem como objetivo para as disciplinas "Programação para a internet","Sistemas Distribuídos e Segurança" e "Criptografia Aplicada" de desenvolver um sistema de deteção de vazamento de dados</p>
+                        <img src="{%static 'img/1662475855774_iscte_sintra_pt_regular_vertical_main.png' %}" alt="Logo" style="height: 400px; margin-left: 1000px; margin-top: -300px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; HackProof 2024</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
     {% endblock content%}

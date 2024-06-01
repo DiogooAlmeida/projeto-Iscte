@@ -47,3 +47,15 @@ def page_404(request):
 
 def page_500(request):
     return render(request, "500.html")
+
+def definicoes(request):
+    return render(request, "definicoes.html")
+
+def logout(request):
+    return render(request, "logout.html")
+
+def perfil(request):
+    return render(request, "perfil.html")
+
+def main_page(request):
+    return render(request, "main_page.html")

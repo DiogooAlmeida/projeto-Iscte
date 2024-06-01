@@ -1,4 +1,6 @@
+
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
 Perfil
@@ -27,7 +29,7 @@ Perfil
                                             <p>Telefone: +351 123 456 789</p>
                                             <p>Nome de Utilizador: douglas_mcgee</p>
                                             <!-- Edit Profile Button -->
-                                            <a href="/definicoes/" class="btn btn-primary mt-3">Editar Perfil</a>
+                                            <a href="{% url 'definicoes' %}" class="btn btn-primary mt-3">Editar Perfil</a>
                                         </div>
                                     </div>
                                 </div>

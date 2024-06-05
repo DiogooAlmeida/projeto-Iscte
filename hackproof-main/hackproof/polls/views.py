@@ -1,9 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.core.cache import cache
+from django.contrib import messages
 from newsapi import NewsApiClient
 from django.core.paginator import Paginator
-# Create your views here.
+import os
+import time
 
+# Create your views here.
 
 def index(request):
     return render(request, "index.html")
@@ -13,9 +17,6 @@ def login(request):
 
 def register(request):
     return render(request, "register.html")
-
-def tables(request):
-    return render(request, "tables.html")
 
 def dicas(request):
     return render(request, "dicas.html")
@@ -70,3 +71,9 @@ def main_page(request):
 
 
     return render(request, "main_page.html", {'page_obj': page_obj})
+
+def tables(request):
+    # Get the logs from the cache
+    list(messages.get_messages(request))
+    logs = cache.get('logs', [])
+    return render(request, 'tables.html', {'logs': logs})

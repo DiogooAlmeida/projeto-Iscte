@@ -46,3 +46,6 @@ def perfil(request):
 
 def main_page(request):
     return render(request, "main_page.html")
+
+def files(request):
+    return render(request, "files.html")

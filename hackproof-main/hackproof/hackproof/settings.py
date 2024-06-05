@@ -48,7 +48,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'polls.middleware.LogCheckMiddleware',
 ]
 
 ROOT_URLCONF = 'hackproof.urls'

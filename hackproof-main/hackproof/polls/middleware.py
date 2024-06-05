@@ -10,7 +10,7 @@ class LogCheckMiddleware:
 
     def __call__(self, request):
         log_date = time.strftime("%Y-%m-%d")
-        log_file_path = f"C:/Users/ruiaq/watchdog/folder_access_{log_date}.log"
+        log_file_path = f"../watchdog/folder_access_{log_date}.log"
 
         if os.path.exists(log_file_path):
             with open(log_file_path, "r") as logfile:

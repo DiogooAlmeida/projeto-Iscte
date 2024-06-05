@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}
+Histórico de Acessos (Access History)
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+
+        <h1 class="h3 mb-2 text-gray-800">Histórico de Modificações</h1>
+
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Data e Hora</th>
+                                <th>Evento</th>
+                                <th>Caminho/Path</th>
+                                <th>Caminho de Destino</th>
+                                <th>Utilizador</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                {% for log in logs %}
+                                        <tr class="{% if log.event_name == 'FileDeletedEvent' %}table-danger{% elif log.event_name == 'FileCreatedEvent' %}table-warning{% endif %}">
+                                                <td>{{ log.date_time }}</td>
+                                                <td>{{ log.event_name }}</td>
+                                                <td>{{ log.path }}</td>
+                                                <td>{{ log.destination_path }}</td>
+                                                <td>{{ log.user }}</td>
+                                        </tr>
+                                {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            var table = $('#dataTable').DataTable({
+                order: [[ 0, 'desc' ]],
+                drawCallback: function() {
+                    table.page('last').draw('page');
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

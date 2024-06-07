@@ -25,9 +25,11 @@ def dicas(request):
 def password(request):
     return render(request, "forgot-password.html")
 
+
 def charts(request):
     return render(request, "charts.html")
 
+@login_required
 def dicas(request):
     newsapi = NewsApiClient(api_key='c9669e9e1bed456eb08fc9f887a5054a')
     news = newsapi.get_everything(q='dicas cibersegurança',
@@ -44,18 +46,23 @@ def dicas(request):
 def page_401(request):
     return render(request, "401.html")
 
+
 def page_404(request):
     return render(request, "404.html")
+
 
 def page_500(request):
     return render(request, "500.html")
 
+@login_required
 def definicoes(request):
     return render(request, "definicoes.html")
 
+@login_required
 def logout(request):
     return render(request, "logout.html")
 
+@login_required
 def perfil(request):
     return render(request, "perfil.html")
 
@@ -74,8 +81,21 @@ def main_page(request):
 
     return render(request, "main_page.html", {'page_obj': page_obj})
 
+
+@login_required
 def tables(request):
-    # Get the logs from the cache
-    list(messages.get_messages(request))
-    logs = cache.get('logs', [])
+    logs = []
+    log_folder = 'log_folder'
+    for filename in os.listdir(log_folder):
+        if filename.endswith('.log'):
+            with open(os.path.join(log_folder, filename), 'r') as f:
+                for line in f:
+                    date_time, event_name, path, destination_path, user = line.strip().split(' - ')
+                    logs.append({
+                        'date_time': date_time,
+                        'event_name': event_name,
+                        'path': path,
+                        'destination_path': destination_path,
+                        'user': user,
+                    })
     return render(request, 'tables.html', {'logs': logs})

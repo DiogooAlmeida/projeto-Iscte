@@ -31,10 +31,7 @@ class FolderMonitor(PatternMatchingEventHandler):
         with open(f"{self.log_file}.log", "a") as f:
             f.write(f"{log_time} - {event_name} - {event.src_path} - {dest_path} - {user}\n")
 
-if __name__ == "__main__":
-    log_file = "folder_access"  # Change this to your desired log file path
-    folder_to_watch = "C:/Users/ruiaq/Downloads"  # Replace with your folder path (be cautious)
-    print("Logging is active")
+def start_logging(log_file, folder_to_watch):
     event_handler = FolderMonitor(log_file)
     observer = Observer()
     observer.schedule(event_handler, folder_to_watch, recursive=True)

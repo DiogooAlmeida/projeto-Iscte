@@ -1,13 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.core.cache import cache
-from django.contrib import messages
-from newsapi import NewsApiClient
-from django.core.paginator import Paginator
-from django.contrib.auth.decorators import login_required
-import os
-import time
-
 # Create your views here.
 
 def index(request):
@@ -19,83 +11,41 @@ def login(request):
 def register(request):
     return render(request, "register.html")
 
+def tables(request):
+    return render(request, "tables.html")
+
 def dicas(request):
     return render(request, "dicas.html")
 
 def password(request):
     return render(request, "forgot-password.html")
 
-
 def charts(request):
     return render(request, "charts.html")
 
-@login_required
 def dicas(request):
-    newsapi = NewsApiClient(api_key='c9669e9e1bed456eb08fc9f887a5054a')
-    news = newsapi.get_everything(q='dicas cibersegurança',
-                                      language='pt',
-                                      sort_by='relevancy',
-                                      page=1)
-    
-    paginator = Paginator(news['articles'], 5) # Show 5 articles per page.
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-
-    return render(request, "dicas.html", {'page_obj': page_obj})
+    return render(request, "dicas.html")
 
 def page_401(request):
     return render(request, "401.html")
 
-
 def page_404(request):
     return render(request, "404.html")
-
 
 def page_500(request):
     return render(request, "500.html")
 
-@login_required
 def definicoes(request):
     return render(request, "definicoes.html")
 
-@login_required
 def logout(request):
     return render(request, "logout.html")
 
-@login_required
 def perfil(request):
     return render(request, "perfil.html")
 
-@login_required 
 def main_page(request):
-    newsapi = NewsApiClient(api_key='c9669e9e1bed456eb08fc9f887a5054a')
-    news = newsapi.get_everything(q='dicas cibersegurança',
-                                      language='pt',
-                                      sort_by='relevancy',
-                                      page=1)
-    
-    paginator = Paginator(news['articles'], 5) # Show 5 articles per page.
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    return render(request, "main_page.html")
 
-
-    return render(request, "main_page.html", {'page_obj': page_obj})
-
-
-@login_required
-def tables(request):
-    logs = []
-    log_folder = 'log_folder'
-    for filename in os.listdir(log_folder):
-        if filename.endswith('.log'):
-            with open(os.path.join(log_folder, filename), 'r') as f:
-                for line in f:
-                    date_time, event_name, path, destination_path, user = line.strip().split(' - ')
-                    logs.append({
-                        'date_time': date_time,
-                        'event_name': event_name,
-                        'path': path,
-                        'destination_path': destination_path,
-                        'user': user,
-                    })
-    return render(request, 'tables.html', {'logs': logs})
+def files(request):
+    return render(request, "files.html")

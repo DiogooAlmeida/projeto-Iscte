@@ -51,6 +51,14 @@
         
             <!-- Divider -->
             <hr class="sidebar-divider">
+
+              <!-- Nav Item - Charts -->
+            <li class="nav-item {% if request.resolver_match.url_name == 'files' %}active{% endif %}">
+                <a class="nav-link" href="{% url 'files' %}">
+                    <i class="fas fa-file" style="margin-left: 4px;"></i>
+                    <span>Escolher Ficheiros</span>
+                </a>
+            </li>
         
             <!-- Nav Item - Charts -->
             <li class="nav-item {% if request.resolver_match.url_name == 'charts' %}active{% endif %}">

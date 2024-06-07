@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}
+Escolher Ficheiros
+{% endblock %}
+
+{% block content %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Escolher Ficheiros</h1>
+    <button type="button" class="btn btn-primary" id="choose-files-button" style="margin-left: 1160px;">Clique para escolher a pasta</button>
+    <input type="file" id="file-upload" webkitdirectory multiple style="display: none;">
+    <p class="mb-4">Escolha sua pasta e veja os detalhes dos ficheiros na tabela abaixo.<a target="_blank"></a></p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Ficheiros Escolhidos</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="file-table" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Nome do Ficheiro</th>
+                            <th>Tamanho</th>
+                            <th>Data</th>
+                            <th>Hora</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Os ficheiros escolhidos serão adicionados aqui -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+
+<script>
+    document.getElementById('choose-files-button').addEventListener('click', function() {
+        document.getElementById('file-upload').click();
+    });
+
+    document.getElementById('file-upload').addEventListener('change', function(event) {
+        const files = event.target.files;
+        const tableBody = document.getElementById('file-table').getElementsByTagName('tbody')[0];
+        
+        Array.from(files).forEach(file => {
+            const row = document.createElement('tr');
+
+            const nameCell = document.createElement('td');
+            nameCell.textContent = file.webkitRelativePath || file.name;
+            row.appendChild(nameCell);
+
+            const sizeCell = document.createElement('td');
+            sizeCell.textContent = (file.size / 1024).toFixed(2) + ' KB';
+            row.appendChild(sizeCell);
+
+            const date = new Date();
+            const dateCell = document.createElement('td');
+            dateCell.textContent = date.toLocaleDateString();
+            row.appendChild(dateCell);
+
+            const timeCell = document.createElement('td');
+            timeCell.textContent = date.toLocaleTimeString();
+            row.appendChild(timeCell);
+
+            const actionCell = document.createElement('td');
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Remover';
+            removeButton.classList.add('btn', 'btn-danger');
+            removeButton.addEventListener('click', () => {
+                row.remove();
+            });
+            actionCell.appendChild(removeButton);
+            row.appendChild(actionCell);
+
+            tableBody.appendChild(row);
+        });
+
+        // Reset input value to allow re-selection of the same file
+        event.target.value = '';
+    });
+</script>
+
+{% endblock %}

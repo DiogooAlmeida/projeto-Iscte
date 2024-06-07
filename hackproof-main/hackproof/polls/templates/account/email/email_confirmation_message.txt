@@ -1,0 +1,7 @@
+{% extends "account/email/base_message.txt" %}
+{% load account %}
+{% load i18n %}
+
+{% block content %}{% autoescape off %}{% user_display user as user_display %} {{ user_display }} estás a receber este email para verificarmos se é você que está a tentar criar conta na HackProof 
+
+Para confirmares que está correto, clica em {{ activate_url }}{% endautoescape %}{% endblock content %}

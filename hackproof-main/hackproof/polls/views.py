@@ -4,6 +4,7 @@ from django.core.cache import cache
 from django.contrib import messages
 from newsapi import NewsApiClient
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 import os
 import time
 
@@ -58,6 +59,7 @@ def logout(request):
 def perfil(request):
     return render(request, "perfil.html")
 
+@login_required 
 def main_page(request):
     newsapi = NewsApiClient(api_key='c9669e9e1bed456eb08fc9f887a5054a')
     news = newsapi.get_everything(q='dicas cibersegurança',

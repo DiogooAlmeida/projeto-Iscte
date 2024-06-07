@@ -120,5 +120,5 @@ def save_path(request):
             messages.success(request, 'Diretório alterado com sucesso.')
             form_submitted = True
             current_path = new_path
-            current_path.replace("\\", "/")
+            current_path = current_path.replace("\\", "/")
     return render(request, 'files.html', {'form_submitted': form_submitted, 'path': current_path})

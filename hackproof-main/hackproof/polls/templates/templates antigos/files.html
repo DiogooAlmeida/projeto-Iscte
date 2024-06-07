@@ -19,7 +19,7 @@ Escolher Diretório
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="path">Pasta:</label>
-                            <input type="text" id="path" name="path" class="form-control" placeholder="{{ path }}">                   
+                            <input type="text" id="path" name="path" class="form-control" value="{{ path }}">                   
                             <button type="submit" class="btn btn-primary" id="saveButton">
                             Salvar 
                             {% if form_submitted %}

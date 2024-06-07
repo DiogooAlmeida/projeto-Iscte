@@ -24,10 +24,11 @@ Perfil
                                 <img class="img-profile rounded-circle" src="{% static 'img/undraw_profile.svg' %}" alt="Profile Picture">
                             </div>
                             <div class="col-lg-8">
-                                <h4>Douglas McGee</h4>
-                                <p>Email: douglas.mcgee@example.com</p>
-                                <p>Telefone: +351 123 456 789</p>
-                                <p>Nome de Utilizador: douglas_mcgee</p>
+                                <h4>{{ user.first_name }} {{user.last_name}}</h4>
+                                <p>Email: {{ user.email }}</p>
+                                <p>Último Login: {{ user.last_login}}</p>
+                                <p>Nome de Utilizador: {{ user.username }}</p>
+                                <p>Data de Registo: {{ user.date_joined}}</p>
                                 <!-- Edit Profile Button -->
                                 <a href="{% url 'definicoes' %}" class="btn btn-primary mt-3">Editar Perfil</a>
                             </div>

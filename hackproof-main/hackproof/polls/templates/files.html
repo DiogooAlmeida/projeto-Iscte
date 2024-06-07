@@ -9,9 +9,9 @@ Escolher Ficheiros
 <div class="container-fluid">
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Escolher Ficheiros</h1>
-    <button type="button" class="btn btn-primary" id="choose-files-button" style="margin-left: 1160px;">Clique para escolher os ficheiros</button>
-    <input type="file" id="file-upload" multiple style="display: none;">
-    <p class="mb-4">Escolha seus ficheiros e veja os detalhes na tabela abaixo.<a target="_blank"></a></p>
+    <button type="button" class="btn btn-primary" id="choose-files-button" style="margin-left: 1160px;">Clique para escolher a pasta</button>
+    <input type="file" id="file-upload" webkitdirectory multiple style="display: none;">
+    <p class="mb-4">Escolha sua pasta e veja os detalhes dos ficheiros na tabela abaixo.<a target="_blank"></a></p>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -53,7 +53,7 @@ Escolher Ficheiros
             const row = document.createElement('tr');
 
             const nameCell = document.createElement('td');
-            nameCell.textContent = file.name;
+            nameCell.textContent = file.webkitRelativePath || file.name;
             row.appendChild(nameCell);
 
             const sizeCell = document.createElement('td');

@@ -13,4 +13,5 @@ urlpatterns = [
     path('definicoes/', views.definicoes, name='definicoes'),
     path('perfil/', views.perfil, name='perfil'),
     path('main_page/', views.main_page, name='main_page'),
+    path('save_path/', views.save_path, name='save_path'),
 ]

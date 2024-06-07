@@ -2,9 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.cache import cache
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 from newsapi import NewsApiClient
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
+from .models import Path
 import os
 import time
 
@@ -66,6 +68,7 @@ def logout(request):
 def perfil(request):
     return render(request, "perfil.html")
 
+
 @login_required 
 def main_page(request):
     newsapi = NewsApiClient(api_key='c9669e9e1bed456eb08fc9f887a5054a')
@@ -99,3 +102,17 @@ def tables(request):
                         'user': user,
                     })
     return render(request, 'tables.html', {'logs': logs})
+
+def save_path(request):
+    path_obj = Path.objects.first()
+    if path_obj is None:
+        path_obj = Path.objects.create(path='your default path here')
+    path = path_obj.path
+    form_submitted = False
+    if request.method == 'POST':
+        path = request.POST['path']
+        path_obj.path = path
+        path_obj.save()
+        messages.success(request, 'Diretório alterado com sucesso.')
+        form_submitted = True
+    return render(request, 'files.html', {'form_submitted': form_submitted, 'path': path})

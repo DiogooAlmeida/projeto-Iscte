@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+Escolher Diretório
+{% endblock %}
+
+{% block content %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Escolher Pasta</h6>
+                </div>
+                <div class="card-body">
+                    <form action="{% url 'save_path' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="path">Pasta:</label>
+                            <input type="text" id="path" name="path" class="form-control" placeholder="{{ path }}">                   <button type="submit" class="btn btn-primary" id="saveButton">
+                            Salvar 
+                            {% if form_submitted %}
+                                <span id="checkMark">&#10004;</span>
+                            {% endif %}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+{% endblock %}

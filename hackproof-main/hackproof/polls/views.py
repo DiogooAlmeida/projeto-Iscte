@@ -93,26 +93,31 @@ def tables(request):
         if filename.endswith('.log'):
             with open(os.path.join(log_folder, filename), 'r') as f:
                 for line in f:
-                    date_time, event_name, path, destination_path, user = line.strip().split(' - ')
-                    logs.append({
-                        'date_time': date_time,
-                        'event_name': event_name,
-                        'path': path,
-                        'destination_path': destination_path,
-                        'user': user,
-                    })
+                    parts = line.strip().split(' - ')
+                    if len(parts) >= 5:
+                        date_time, event_name, folder_path, destination_path, user = parts[:5]
+                        logs.append({
+                            'date_time': date_time,
+                            'event_name': event_name,
+                            'folder_path': folder_path,
+                            'destination_path': destination_path,
+                            'user': user,
+                        })
     return render(request, 'tables.html', {'logs': logs})
 
+@login_required
 def save_path(request):
     path_obj = Path.objects.first()
     if path_obj is None:
         path_obj = Path.objects.create(path='your default path here')
-    path = path_obj.path
+    current_path = path_obj.path
     form_submitted = False
     if request.method == 'POST':
-        path = request.POST['path']
-        path_obj.path = path
-        path_obj.save()
-        messages.success(request, 'Diretório alterado com sucesso.')
-        form_submitted = True
-    return render(request, 'files.html', {'form_submitted': form_submitted, 'path': path})
+        new_path = request.POST['path']
+        if new_path != current_path:
+            path_obj.path = new_path
+            path_obj.save()
+            messages.success(request, 'Diretório alterado com sucesso.')
+            form_submitted = True
+            current_path = new_path
+    return render(request, 'files.html', {'form_submitted': form_submitted, 'path': current_path})

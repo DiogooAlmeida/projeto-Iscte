@@ -26,7 +26,7 @@ Histórico de Acessos (Access History)
                                         <tr class="{% if log.event_name == 'FileDeletedEvent' %}table-danger{% elif log.event_name == 'FileCreatedEvent' %}table-warning{% endif %}">
                                                 <td>{{ log.date_time }}</td>
                                                 <td>{{ log.event_name }}</td>
-                                                <td>{{ log.path }}</td>
+                                                <td>{{ log.folder_path }}</td>
                                                 <td>{{ log.destination_path }}</td>
                                                 <td>{{ log.user }}</td>
                                         </tr>

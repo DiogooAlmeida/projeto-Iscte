@@ -19,13 +19,28 @@ Escolher Diretório
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="path">Pasta:</label>
-                            <input type="text" id="path" name="path" class="form-control" placeholder="{{ path }}">                   <button type="submit" class="btn btn-primary" id="saveButton">
+                            <input type="text" id="path" name="path" class="form-control" placeholder="{{ path }}">                   
+                            <button type="submit" class="btn btn-primary" id="saveButton">
                             Salvar 
                             {% if form_submitted %}
                                 <span id="checkMark">&#10004;</span>
                             {% endif %}
                         </button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Tutorial Link -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Como encontrar o caminho de uma pasta no Windows</h6>
+                </div>
+                <div class="card-body">
+                    <p>Para aprender como encontrar o caminho de uma pasta no Windows, visite o seguinte link:</p>
+                    <a href="https://www.wikihow.com/Find-a-File%27s-Path-on-Windows" target="_blank">Tutorial WikiHow</a>
                 </div>
             </div>
         </div>

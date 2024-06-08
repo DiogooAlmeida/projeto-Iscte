@@ -1,31 +1,45 @@
-{% extends "socialaccount/base_entrance.html" %}
+{% extends "account/base_account.html" %}
 {% load i18n %}
 {% load allauth %}
 {% block head_title %}
-    {% trans "Sign In" %}
+    {% trans "Iniciar Sessão" %}
 {% endblock head_title %}
 {% block content %}
-    {% if process == "connect" %}
-        {% element h1 %}
-            {% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}
-        {% endelement %}
-        {% element p %}
-            {% blocktrans with provider.name as provider %}You are about to connect a new third-party account from {{ provider }}.{% endblocktrans %}
-        {% endelement %}
-    {% else %}
-        {% element h1 %}
-            {% blocktrans with provider.name as provider %}Sign In Via {{ provider }}{% endblocktrans %}
-        {% endelement %}
-        {% element p %}
-            {% blocktrans with provider.name as provider %}You are about to sign in using a third-party account from {{ provider }}.{% endblocktrans %}
-        {% endelement %}
-    {% endif %}
-    {% element form method="post" no_visible_fields=True %}
-        {% slot actions %}
-            {% csrf_token %}
-            {% element button type="submit" %}
-                {% trans "Continue" %}
-            {% endelement %}
-        {% endslot %}
-    {% endelement %}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="p-5">
+        {% if process == "connect" %}
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">{% blocktrans with provider.name as provider %}Conectar {{ provider }}{% endblocktrans %}</h1>
+            </div>
+            <p>
+                {% blocktrans with provider.name as provider %}Você está prestes a conectar uma nova conta de terceiros de {{ provider }}.{% endblocktrans %}
+            </p>
+        {% else %}
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">{% blocktrans with provider.name as provider %}Iniciar Sessão Via {{ provider }}{% endblocktrans %}</h1>
+            </div>
+            <p>
+                {% blocktrans with provider.name as provider %}Você está prestes a fazer login usando uma conta de terceiros de {{ provider }}.{% endblocktrans %}
+             </p>
+        {% endif %}
+            <form method="post" class="user">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary btn-user btn-block">
+                    {% trans "Continuar" %}
+                </button>
+            </form>
+            <a href="{% url 'account_login' %}" class="btn btn-primary btn-user btn-block mt-3">
+                Voltar para o login
+            </a>
+            </form>
+        </div>
+    </div>
+</div>
+                
+       
 {% endblock content %}
+
+

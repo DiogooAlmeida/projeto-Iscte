@@ -1,25 +1,16 @@
-{% extends "account/base_manage.html" %}
+{% extends "account/base_account.html" %}
 {% load i18n %}
-{% load allauth %}
 {% block head_title %}
-    {% trans "Verify Your Email Address" %}
+    Verifique o Seu Endereço de Email
 {% endblock head_title %}
 {% block content %}
-    {% element h1 %}
-        {% trans "Verify Your Email Address" %}
-    {% endelement %}
-    {% url 'account_email' as email_url %}
-    {% element p %}
-        {% blocktrans %}This part of the site requires us to verify that
-you are who you claim to be. For this purpose, we require that you
-verify ownership of your email address. {% endblocktrans %}
-    {% endelement %}
-    {% element p %}
-        {% blocktrans %}We have sent an email to you for
-verification. Please click on the link inside that email. If you do not see the verification email in your main inbox, check your spam folder. Otherwise
-contact us if you do not receive it within a few minutes.{% endblocktrans %}
-    {% endelement %}
-    {% element p %}
-        {% blocktrans %}<strong>Note:</strong> you can still <a href="{{ email_url }}">change your email address</a>.{% endblocktrans %}
-    {% endelement %}
+    <div class="text-center">
+        <h1 class="h3 text-gray-900 mb-3">Verifique o Seu Endereço de Email</h1>
+        <p class="mb-3">
+            Enviámos um email para você para verificação. Siga o link fornecido para finalizar o processo de inscrição. 
+            Se não encontrar o email de verificação na sua caixa de entrada principal, verifique a pasta de spam. 
+            Por favor, entre em contato conosco se não receber o email de verificação dentro de alguns minutos.
+        </p>
+    </div>
 {% endblock content %}
+

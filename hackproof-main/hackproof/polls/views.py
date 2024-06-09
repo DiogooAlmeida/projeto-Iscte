@@ -88,12 +88,8 @@ def charts(request):
 
 @login_required
 def dicas(request):
-    newsapi = NewsApiClient(api_key='c9669e9e1bed456eb08fc9f887a5054a')
-    news = newsapi.get_everything(q='cybersecurity tips',
-                                  language='en',
-                                  sort_by='relevancy',
-                                 )
-    articles = news['articles']
+   
+    articles = get_news()
 
     return render(request, "dicas.html", {'articles': articles})
 
@@ -121,21 +117,21 @@ def perfil(request):
     return render(request, "perfil.html")
 
 
+def get_news():
+    newsapi = NewsApiClient(api_key='c9669e9e1bed456eb08fc9f887a5054a')
+    news = newsapi.get_everything(q='cybersecurity tips',
+                                  language='en',
+                                  sort_by='relevancy',
+                                 )    
+    return news['articles']  # Get the first 5 articles
+
 @login_required 
 def main_page(request):
-    newsapi = NewsApiClient(api_key='c9669e9e1bed456eb08fc9f887a5054a')
-    news = newsapi.get_everything(q='dicas cibersegurança',
-                                  language='pt',
-                                  sort_by='relevancy',
-                                  page=1)
-    
-    paginator = Paginator(news['articles'], 5) # Show 5 articles per page.
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    articles = get_news()
     event_counts_dict = get_event_counts()
 
     context = {
-        'page_obj': page_obj,
+        'articles': articles,
         'event_counts': json.dumps(event_counts_dict),
     }
 

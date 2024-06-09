@@ -71,35 +71,33 @@ Página Principal
                             </div>
                         </div>
                     </div>
-
                     <!-- Content Row -->
                     <div class="row">
 
                         <!-- Content Column -->
                         <div class="col-lg-6 mb-4">
 
-
                             <!-- Approach -->
-                            <div class="card shadow mb-4" style="width: 200%;"> <!-- Ajuste a altura conforme necessário -->
+                            <div class="card shadow mb-4" style="width: 200%;"> <!-- Adjust the height as necessary -->
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Dicas e Boas Práticas</h6>
-                            </div>
+                                </div>
                                 <div class="card-body">
                                     <div class="card mb-4">
-                                <div class="card-body" style="line-height: 1.6; font-family: Arial, sans-serif;">
-                                    {% for article in page_obj %}
-                                        <h2 style="font-size: 1.2em;"><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></h2>
-                                        <div style="display: flex; align-items: flex-start;">
-                                            <img src="{{ article.urlToImage }}" alt="{{ article.title }}" width="100" style="margin-right: 20px;">
-                                            <p>{{ article.description }}</p>
+                                        <div class="card-body" style="line-height: 1.6; font-family: Arial, sans-serif;">
+                                            {% for article in articles|slice:":3" %}
+                                                <h2 style="font-size: 1.2em;"><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></h2>
+                                                <div style="display: flex; align-items: flex-start;">
+                                                    <img src="{{ article.urlToImage }}" alt="{{ article.title }}" width="100" style="margin-right: 20px;">
+                                                    <p>{{ article.description }}</p>
+                                                </div>
+                                                <hr>
+                                            {% endfor %}
+                                            <a href="{% url 'dicas' %}" class="btn btn-primary">Show more</a>
                                         </div>
-                                        <hr>
-                                    {% endfor %}
-                                </div>
+                                    </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
 

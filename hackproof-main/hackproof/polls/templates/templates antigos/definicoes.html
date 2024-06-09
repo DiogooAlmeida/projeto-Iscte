@@ -70,33 +70,13 @@ Definições
                                             </div>
                                             <div id="collapseEmail" class="collapse" aria-labelledby="headingEmail" data-parent="#accordion">
                                                 <div class="card-body">
-                                                    <form>
+                                                    <form method="post" action="{% url 'definicoes' %}">
+                                                        {% csrf_token %}
                                                         <div class="form-group">
                                                             <label for="newEmail">Novo E-mail</label>
-                                                            <input type="email" class="form-control" id="newEmail" placeholder="Novo Email">
+                                                            <input type="email" class="form-control" id="newEmail" name="newEmail" placeholder="Novo Email">
                                                         </div>
                                                         <button type="submit" class="btn btn-primary">Alterar E-mail</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Change Phone Number -->
-                                        <div class="card">
-                                            <div class="card-header" id="headingPhone">
-                                                <h5 class="mb-0">
-                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapsePhone" aria-expanded="true" aria-controls="collapsePhone">
-                                                        Alterar Número de Telemóvel
-                                                    </button>
-                                                </h5>
-                                            </div>
-                                            <div id="collapsePhone" class="collapse" aria-labelledby="headingPhone" data-parent="#accordion">
-                                                <div class="card-body">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <label for="newPhone">Novo Número de Telemóvel</label>
-                                                            <input type="tel" class="form-control" id="newPhone" placeholder="Novo Número de Telefone">
-                                                        </div>
-                                                        <button type="submit" class="btn btn-primary">Alterar Número de Telemóvel</button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -112,10 +92,11 @@ Definições
                                             </div>
                                             <div id="collapseUsername" class="collapse" aria-labelledby="headingUsername" data-parent="#accordion">
                                                 <div class="card-body">
-                                                    <form>
+                                                    <form method="post" action="{% url 'definicoes' %}">
+                                                        {% csrf_token %}
                                                         <div class="form-group">
                                                             <label for="newUsername">Novo Nome de Utilizador</label>
-                                                            <input type="text" class="form-control" id="newUsername" placeholder="Novo Nome de Usuário">
+                                                            <input type="text" class="form-control" id="newUsername" name="newUsername" placeholder="Novo Nome de Utilizador">
                                                         </div>
                                                         <button type="submit" class="btn btn-primary">Alterar Nome de Utilizador</button>
                                                     </form>
@@ -158,14 +139,15 @@ Definições
                                             </div>
                                             <div id="collapseName" class="collapse" aria-labelledby="headingName" data-parent="#accordion">
                                                 <div class="card-body">
-                                                    <form>
+                                                    <form method="post" action="{% url 'definicoes' %}">
+                                                        {% csrf_token %}
                                                         <div class="form-group">
                                                             <label for="firstName">Primeiro Nome</label>
-                                                            <input type="text" class="form-control" id="firstName" placeholder="Primeiro Nome">
+                                                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Primeiro Nome">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="lastName">Último Nome</label>
-                                                            <input type="text" class="form-control" id="lastName" placeholder="Último Nome">
+                                                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Último Nome">
                                                         </div>
                                                         <button type="submit" class="btn btn-primary">Alterar Nome</button>
                                                     </form>

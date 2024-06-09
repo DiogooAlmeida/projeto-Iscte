@@ -11,6 +11,7 @@ from .models import Path
 import os
 import datetime
 import json
+import glob
 
 # Create your views here.
 
@@ -52,11 +53,38 @@ def get_event_counts():
     event_counts_dict = dict(event_counts)  # Convert to regular dictionary
     return event_counts_dict
 
+def get_all_event_counts():
+    logs = []
+    log_folder = 'log_folder'
+    filenames = glob.glob(os.path.join(log_folder, 'folder_access_*.log'))
+    for filename in filenames:
+        if os.path.exists(filename):
+            with open(filename, 'r') as f:
+                for line in f:
+                    parts = line.strip().split(' - ')
+                    if len(parts) >= 5:
+                        date_time, event_name, folder_path, destination_path, user = parts[:5]
+                        logs.append({
+                            'date_time': date_time,
+                            'event_name': event_name,
+                            'folder_path': folder_path,
+                            'destination_path': destination_path,
+                            'user': user,
+                        })
+
+    event_counts = Counter(log['event_name'] for log in logs)
+    total_event_count = sum(event_counts.values())  # Sum up all the counts
+    return total_event_count
+
 @login_required
 def charts(request):
     event_counts_dict = get_event_counts()
-    print('event_counts:', event_counts_dict)
-    return render(request, 'charts.html', {'event_counts': json.dumps(event_counts_dict)})
+    all_event_counts = get_all_event_counts()
+    print('all_event_counts:', all_event_counts)
+    return render(request, 'charts.html', {
+        'event_counts': json.dumps(event_counts_dict),
+        'all_event_counts': all_event_counts
+    })
 
 @login_required
 def dicas(request):
@@ -108,7 +136,7 @@ def main_page(request):
 
     context = {
         'page_obj': page_obj,
-        'event_counts': json.dumps(event_counts_dict)
+        'event_counts': json.dumps(event_counts_dict),
     }
 
     return render(request, "main_page.html", context)

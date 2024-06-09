@@ -29,37 +29,13 @@ Perfil
                                 <p>Último Login: {{ user.last_login}}</p>
                                 <p>Nome de Utilizador: {{ user.username }}</p>
                                 <p>Data de Registo: {{ user.date_joined}}</p>
+                                <p>Conta de Administrador: {% if user.is_superuser %}Sim{% else %}Não{% endif %}</p>
                                 <!-- Edit Profile Button -->
                                 <a href="{% url 'definicoes' %}" class="btn btn-primary mt-3">Editar Perfil</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Edit Profile Form - Commented Out
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Editar Perfil</h6>
-                    </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="profileEmail">Novo E-mail</label>
-                                <input type="email" class="form-control" id="profileEmail" placeholder="Novo Email">
-                            </div>
-                            <div class="form-group">
-                                <label for="profilePhone">Novo Número de Telemóvel</label>
-                                <input type="tel" class="form-control" id="profilePhone" placeholder="Novo Número de Telefone">
-                            </div>
-                            <div class="form-group">
-                                <label for="profileUsername">Novo Nome de Utilizador</label>
-                                <input type="text" class="form-control" id="profileUsername" placeholder="Novo Nome de Usuário">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Salvar Alterações</button>
-                        </form>
-                    </div>
-                </div>
-                -->
             </div>
         </div>
         <!-- End Content Row -->

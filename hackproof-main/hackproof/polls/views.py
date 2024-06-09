@@ -1,11 +1,7 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.core.cache import cache
+from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.http import HttpResponseRedirect
 from newsapi import NewsApiClient
 from collections import Counter
-from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from .models import Path
 import os
@@ -105,7 +101,37 @@ def page_500(request):
 
 @login_required
 def definicoes(request):
-    return render(request, "definicoes.html")
+    if request.method == 'POST':
+        new_email = request.POST.get('newEmail')
+        new_username = request.POST.get('newUsername')
+        new_first_name = request.POST.get('firstName')
+        new_last_name = request.POST.get('lastName')
+        if new_email:
+            # Change the user's email
+            request.user.email = new_email
+            messages.success(request, 'Email changed to {}'.format(new_email))
+
+        if new_username:
+            # Change the user's username
+            request.user.username = new_username
+            messages.success(request, 'Username changed to {}'.format(new_username))
+
+        if new_first_name:
+            # Change the user's first name
+            request.user.first_name = new_first_name
+            messages.success(request, 'First name changed to {}'.format(new_first_name))
+
+        if new_last_name:
+            # Change the user's last name
+            request.user.last_name = new_last_name
+            messages.success(request, 'Last name changed to {}'.format(new_last_name))
+
+        # Save all changes to the user
+        request.user.save()
+
+        return redirect('definicoes')
+    else:
+        return render(request, 'definicoes.html')
 
 @login_required
 def logout(request):

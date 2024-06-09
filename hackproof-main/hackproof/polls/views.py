@@ -4,11 +4,13 @@ from django.core.cache import cache
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from newsapi import NewsApiClient
+from collections import Counter
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from .models import Path
 import os
 import datetime
+import json
 
 # Create your views here.
 
@@ -28,8 +30,30 @@ def password(request):
     return render(request, "forgot-password.html")
 
 
+@login_required
 def charts(request):
-    return render(request, "charts.html")
+    logs = []
+    log_folder = 'log_folder'
+    today = datetime.date.today()
+    filename = f'folder_access_{today}.log'
+    if os.path.exists(os.path.join(log_folder, filename)):
+        with open(os.path.join(log_folder, filename), 'r') as f:
+            for line in f:
+                parts = line.strip().split(' - ')
+                if len(parts) >= 5:
+                    date_time, event_name, folder_path, destination_path, user = parts[:5]
+                    logs.append({
+                        'date_time': date_time,
+                        'event_name': event_name,
+                        'folder_path': folder_path,
+                        'destination_path': destination_path,
+                        'user': user,
+                    })
+
+    event_counts = Counter(log['event_name'] for log in logs)
+    event_counts_dict = dict(event_counts)  # Convert to regular dictionary
+    print('event_counts:', event_counts_dict)
+    return render(request, 'charts.html', {'event_counts': json.dumps(event_counts_dict)})
 
 @login_required
 def dicas(request):

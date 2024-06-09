@@ -48,30 +48,69 @@ Estatísticas
                             </div>
 
                         </div>
-
-                        <!-- Donut Chart -->
                         <div class="col-xl-4 col-lg-5">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Tipos de Acessos </h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Tipos de Acessos Hoje</h6>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="chart-pie pt-4">
                                         <canvas id="myPieChart"></canvas>
-                                    </div><!--
+                                    </div>
+                                    <!--
                                     <hr>
                                     Styling for the donut chart can be found in the
                                     <code>/js/demo/chart-pie-demo.js</code> file.-->
                                 </div>
                             </div>
                         </div>
+                        
+                        <!-- Include the Chart.js library -->
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                        
+                        <script>
+                            // Parse the event_counts data from the Django context
+                            var eventCounts = JSON.parse('{{ event_counts|escapejs|safe }}');
+                        
+                            // Generate the labels and data arrays
+                            var labels = Object.keys(eventCounts);
+                            var data = Object.values(eventCounts);
+                        
+                            // Set up the chart
+                            var ctx = document.getElementById('myPieChart');
+                            var myPieChart = new Chart(ctx, {
+                                type: 'doughnut',
+                                data: {
+                                    labels: labels,
+                                    datasets: [{
+                                        data: data,
+                                        backgroundColor: ['#89CFF0', '#A1CAF1', '#B0E0E6'],
+                                    }],
+                                },
+                                options: {
+                                    maintainAspectRatio: false,
+                                    tooltips: {
+                                        backgroundColor: "rgb(255,255,255)",
+                                        bodyFontColor: "#858796",
+                                        borderColor: '#dddfeb',
+                                        borderWidth: 0.5,
+                                        xPadding: 15,
+                                        yPadding: 15,
+                                        displayColors: false,
+                                        caretPadding: 10,
+                                    },
+                                    legend: {
+                                        display: false
+                                    },
+                                    cutoutPercentage: 150,  // Increase this value to make the chart thinner
+                                },
+                            });
+                        </script>                    
                     </div>
-
                 </div>
                 <!-- /.container-fluid -->
 
             </div>
-            <!-- End of Main Content -->
-    {% endblock content %}
+{% endblock content %}

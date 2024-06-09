@@ -30,35 +30,33 @@ Definições
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div id="accordion">
-                                        <!-- Change Password -->
+                                        <!-- Change First and Last Name -->
                                         <div class="card">
-                                            <div class="card-header" id="headingPassword">
+                                            <div class="card-header" id="headingName">
                                                 <h5 class="mb-0">
-                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapsePassword" aria-expanded="true" aria-controls="collapsePassword">
-                                                        Alterar Password
+                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseName" aria-expanded="true" aria-controls="collapseName">
+                                                        Alterar Nome
                                                     </button>
                                                 </h5>
                                             </div>
-                                            <div id="collapsePassword" class="collapse" aria-labelledby="headingPassword" data-parent="#accordion">
+                                            <div id="collapseName" class="collapse" aria-labelledby="headingName" data-parent="#accordion">
                                                 <div class="card-body">
-                                                    <form>
+                                                    <form method="post" action="{% url 'definicoes' %}">
+                                                        {% csrf_token %}
                                                         <div class="form-group">
-                                                            <label for="currentPassword">Password Atual</label>
-                                                            <input type="password" class="form-control" id="currentPassword" placeholder="Senha Atual">
+                                                            <label for="firstName">Primeiro Nome</label>
+                                                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Primeiro Nome">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="newPassword">Nova Password</label>
-                                                            <input type="password" class="form-control" id="newPassword" placeholder="Nova Senha">
+                                                            <label for="lastName">Último Nome</label>
+                                                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Último Nome">
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label for="confirmPassword">Confirmar Nova Password</label>
-                                                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmar Nova Senha">
-                                                        </div>
-                                                        <button type="submit" class="btn btn-primary">Alterar Password</button>
+                                                        <button type="submit" class="btn btn-primary">Alterar Nome</button>
                                                     </form>
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                         <!-- Change Email -->
                                         <div class="card">
                                             <div class="card-header" id="headingEmail">
@@ -81,6 +79,35 @@ Definições
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- Change Password -->
+                                        <div class="card">
+                                        <div class="card-header" id="headingPassword">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapsePassword" aria-expanded="true" aria-controls="collapsePassword">
+                                                    Alterar Password
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapsePassword" class="collapse" aria-labelledby="headingPassword" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="currentPassword">Password Atual</label>
+                                                        <input type="password" class="form-control" id="currentPassword" placeholder="Senha Atual">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="newPassword">Nova Password</label>
+                                                        <input type="password" class="form-control" id="newPassword" placeholder="Nova Senha">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="confirmPassword">Confirmar Nova Password</label>
+                                                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmar Nova Senha">
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Alterar Password</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                         <!-- Change Username -->
                                         <div class="card">
                                             <div class="card-header" id="headingUsername">
@@ -124,32 +151,6 @@ Definições
                                                             </select>
                                                         </div>
                                                         <button type="submit" class="btn btn-primary">Guardar Preferências</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Change First and Last Name -->
-                                        <div class="card">
-                                            <div class="card-header" id="headingName">
-                                                <h5 class="mb-0">
-                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseName" aria-expanded="true" aria-controls="collapseName">
-                                                        Alterar Nome
-                                                    </button>
-                                                </h5>
-                                            </div>
-                                            <div id="collapseName" class="collapse" aria-labelledby="headingName" data-parent="#accordion">
-                                                <div class="card-body">
-                                                    <form method="post" action="{% url 'definicoes' %}">
-                                                        {% csrf_token %}
-                                                        <div class="form-group">
-                                                            <label for="firstName">Primeiro Nome</label>
-                                                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Primeiro Nome">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="lastName">Último Nome</label>
-                                                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Último Nome">
-                                                        </div>
-                                                        <button type="submit" class="btn btn-primary">Alterar Nome</button>
                                                     </form>
                                                 </div>
                                             </div>

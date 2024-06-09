@@ -29,6 +29,7 @@ Perfil
                                 <p>Último Login: {{ user.last_login}}</p>
                                 <p>Nome de Utilizador: {{ user.username }}</p>
                                 <p>Data de Registo: {{ user.date_joined}}</p>
+                                <p>Conta de Administrador: {% if user.is_superuser %}Sim{% else %}Não{% endif %}</p>
                                 <!-- Edit Profile Button -->
                                 <a href="{% url 'definicoes' %}" class="btn btn-primary mt-3">Editar Perfil</a>
                             </div>

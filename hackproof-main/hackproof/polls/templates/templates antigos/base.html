@@ -87,9 +87,9 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         {% comment %} <h6 class="collapse-header">Login Screens:</h6> {% endcomment %}
-                        <a class="collapse-item" href="login/">Login</a>
-                        <a class="collapse-item" href="register/">Registo</a>
-                        <a class="collapse-item" href="forgot-password/">Esqueci-me da Password</a>
+                        <a class="collapse-item" href="#">Login</a>
+                        <a class="collapse-item" href="#">Registo</a>
+                        <a class="collapse-item" href="#">Esqueci-me da Password</a>
                         <!--<div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="404.html">404 Page</a>
@@ -296,15 +296,15 @@
                                     <!-- Dropdown - User Information -->
                                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                         aria-labelledby="userDropdown">
-                                        <a class="dropdown-item" href="/perfil/">
+                                        <a class="dropdown-item" href="{% url 'perfil' %}">
                                             <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                             Perfil
                                         </a>
-                                        <a class="dropdown-item" href="/definicoes/">
+                                        <a class="dropdown-item" href="{% url 'definicoes' %}">
                                             <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400" ></i>
                                             Definições
                                         </a>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="{% url 'tables' %}">
                                             <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                             Activity Log
                                         </a>

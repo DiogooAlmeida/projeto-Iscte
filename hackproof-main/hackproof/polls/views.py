@@ -80,7 +80,6 @@ def get_all_event_counts():
 def charts(request):
     event_counts_dict = get_event_counts()
     all_event_counts = get_all_event_counts()
-    print('all_event_counts:', all_event_counts)
     return render(request, 'charts.html', {
         'event_counts': json.dumps(event_counts_dict),
         'all_event_counts': all_event_counts

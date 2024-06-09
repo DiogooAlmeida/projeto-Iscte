@@ -39,8 +39,9 @@ Estatísticas
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-bar">
-                                        <canvas id="myBarChart"></canvas>
-                                    </div><!--
+                                        <canvas id="myBarChart" style="height: 400px;"></canvas> <!-- Set the height here -->
+                                    </div>
+                                    <!--
                                     <hr>
                                     Styling for the bar chart can be found in the
                                     <code>/js/demo/chart-bar-demo.js</code> file.-->
@@ -69,11 +70,10 @@ Estatísticas
                         
                         <!-- Include the Chart.js library -->
                         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                        
                         <script>
                             // Parse the event_counts data from the Django context
                             var eventCounts = JSON.parse('{{ event_counts|escapejs|safe }}');
-                        
+
                             // Generate the labels and data arrays
                             var labels = Object.keys(eventCounts);
                             var data = Object.values(eventCounts);
@@ -105,6 +105,32 @@ Estatísticas
                                         display: false
                                     },
                                     cutoutPercentage: 150,  // Increase this value to make the chart thinner
+                                },
+                            });
+                            var ctx = document.getElementById('myBarChart');
+
+                            // Parse the total data from the Django context
+                            var total = '{{ all_event_counts|escapejs|safe }}';
+
+                            var myBarChart = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: ['2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],  // Labels for the bars
+                                    datasets: [{
+                                        label: 'Total de Acessos',
+                                        data: [0, 0, 0, 0, 0, 0, 0, 0, total],  // Data points for the bars
+                                        backgroundColor: ['#2f56c7'],
+                                    }],
+                                },
+                                options: {
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                beginAtZero: true,
+                                                max: total  // Set the maximum value of the y-axis
+                                            }
+                                        }]
+                                    }
                                 },
                             });
                         </script>                    

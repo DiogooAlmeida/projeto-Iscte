@@ -8,7 +8,7 @@ from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from .models import Path
 import os
-import time
+import datetime
 
 # Create your views here.
 
@@ -89,20 +89,21 @@ def main_page(request):
 def tables(request):
     logs = []
     log_folder = 'log_folder'
-    for filename in os.listdir(log_folder):
-        if filename.endswith('.log'):
-            with open(os.path.join(log_folder, filename), 'r') as f:
-                for line in f:
-                    parts = line.strip().split(' - ')
-                    if len(parts) >= 5:
-                        date_time, event_name, folder_path, destination_path, user = parts[:5]
-                        logs.append({
-                            'date_time': date_time,
-                            'event_name': event_name,
-                            'folder_path': folder_path,
-                            'destination_path': destination_path,
-                            'user': user,
-                        })
+    today = datetime.date.today()
+    filename = f'folder_access_{today}.log'
+    if os.path.exists(os.path.join(log_folder, filename)):
+        with open(os.path.join(log_folder, filename), 'r') as f:
+            for line in f:
+                parts = line.strip().split(' - ')
+                if len(parts) >= 5:
+                    date_time, event_name, folder_path, destination_path, user = parts[:5]
+                    logs.append({
+                        'date_time': date_time,
+                        'event_name': event_name,
+                        'folder_path': folder_path,
+                        'destination_path': destination_path,
+                        'user': user,
+                    })
     return render(request, 'tables.html', {'logs': logs})
 
 @login_required

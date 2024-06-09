@@ -70,7 +70,7 @@
             <li class="nav-item {% if request.resolver_match.url_name == 'tables' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'tables'%}">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Histórico de Acessos</span></a>
+                    <span>Histórico de Modificações</span></a>
             </li>
             
             <li class="nav-item {% if request.resolver_match.url_name == 'dicas' %}active{% endif %}">
@@ -86,10 +86,10 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
+                        {% comment %} <h6 class="collapse-header">Login Screens:</h6> {% endcomment %}
                         <a class="collapse-item" href="login/">Login</a>
-                        <a class="collapse-item" href="register/">Register</a>
-                        <a class="collapse-item" href="forgot-password/">Esquecer Password</a>
+                        <a class="collapse-item" href="register/">Registo</a>
+                        <a class="collapse-item" href="forgot-password/">Esqueci-me da Password</a>
                         <!--<div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="404.html">404 Page</a>

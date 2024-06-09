@@ -29,9 +29,7 @@ def dicas(request):
 def password(request):
     return render(request, "forgot-password.html")
 
-
-@login_required
-def charts(request):
+def get_event_counts():
     logs = []
     log_folder = 'log_folder'
     today = datetime.date.today()
@@ -52,6 +50,11 @@ def charts(request):
 
     event_counts = Counter(log['event_name'] for log in logs)
     event_counts_dict = dict(event_counts)  # Convert to regular dictionary
+    return event_counts_dict
+
+@login_required
+def charts(request):
+    event_counts_dict = get_event_counts()
     print('event_counts:', event_counts_dict)
     return render(request, 'charts.html', {'event_counts': json.dumps(event_counts_dict)})
 
@@ -94,16 +97,21 @@ def perfil(request):
 def main_page(request):
     newsapi = NewsApiClient(api_key='c9669e9e1bed456eb08fc9f887a5054a')
     news = newsapi.get_everything(q='dicas cibersegurança',
-                                      language='pt',
-                                      sort_by='relevancy',
-                                      page=1)
+                                  language='pt',
+                                  sort_by='relevancy',
+                                  page=1)
     
     paginator = Paginator(news['articles'], 5) # Show 5 articles per page.
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+    event_counts_dict = get_event_counts()
 
+    context = {
+        'page_obj': page_obj,
+        'event_counts': json.dumps(event_counts_dict)
+    }
 
-    return render(request, "main_page.html", {'page_obj': page_obj})
+    return render(request, "main_page.html", context)
 
 
 @login_required

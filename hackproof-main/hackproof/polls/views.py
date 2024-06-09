@@ -58,16 +58,13 @@ def charts(request):
 @login_required
 def dicas(request):
     newsapi = NewsApiClient(api_key='c9669e9e1bed456eb08fc9f887a5054a')
-    news = newsapi.get_everything(q='dicas cibersegurança',
-                                      language='pt',
-                                      sort_by='relevancy',
-                                      page=1)
-    
-    paginator = Paginator(news['articles'], 5) # Show 5 articles per page.
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    news = newsapi.get_everything(q='cybersecurity tips',
+                                  language='en',
+                                  sort_by='relevancy',
+                                 )
+    articles = news['articles']
 
-    return render(request, "dicas.html", {'page_obj': page_obj})
+    return render(request, "dicas.html", {'articles': articles})
 
 def page_401(request):
     return render(request, "401.html")

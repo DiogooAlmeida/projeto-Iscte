@@ -5,61 +5,41 @@ Dicas
 {% endblock %}
 
 {% block content %}
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Dicas e Boas Práticas de Segurança Informática</h1>
-                    <p class="mb-4">O blog da Norton oferece uma variedade de artigos sobre proteção contra ameaças informáticas, privacidade online e segurança de dispositivos<a target="_blank"
-                            href="https://nz.norton.com/blog">official Norton Blog</a>.</p>
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Dicas e Boas Práticas de Segurança Informática</h1>
+        <p class="mb-4">Este espaço é dedicado a fornecer dicas e boas práticas para garantir a sua segurança informática. Explore os artigos para aprender mais sobre como proteger-se contra ameaças online e garantir a segurança dos seus dispositivos.</p>
 
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Apagar?</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Title</th>
-                                            <th>Description</th>
-                                            <th>Image</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for article in page_obj %}
-                                            <tr>
-                                                <td><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></td>
-                                                <td>{{ article.description }}</td>
-                                                <td><img src="{{ article.urlToImage }}" alt="{{ article.title }}" width="200"></td>
-                                            </tr>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
-                                <div class="pagination">
-                                    <span class="step-links">
-                                        {% if page_obj.has_previous %}
-                                            <a href="?page=1">&laquo; first</a>
-                                            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-                                        {% endif %}
-
-                                        <span class="current">
-                                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                                        </span>
-
-                                        {% if page_obj.has_next %}
-                                            <a href="?page={{ page_obj.next_page_number }}">next</a>
-                                            <a href="?page={{ page_obj.paginator.num_pages }}">&raquo; last</a>
-                                        {% endif %}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <!-- /.container-fluid -->
-
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Artigos</h6>
             </div>
-            <!-- End of Main Content -->
-    {% endblock content %}
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Descrição</th>
+                                <th>Imagem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for article in articles %}
+                                <tr>
+                                    <td><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></td>
+                                    <td>{{ article.description }}</td>
+                                    <td><img src="{{ article.urlToImage }}" alt="{{ article.title }}" width="200"></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Main Content -->
+{% endblock content %}

@@ -8,6 +8,7 @@ import os
 import datetime
 import json
 import glob
+from cryptography.fernet import Fernet
 
 # Create your views here.
 
@@ -163,18 +164,72 @@ def main_page(request):
     return render(request, "main_page.html", context)
 
 
+
+@login_required
+def tables(request):
+    logs = []
+    log_folder = 'log_folder'
+    #today = datetime.date.today()
+    filename = f'folder_access_2024-06-10.enc' #f'folder_access_{today}.enc'
+    
+    # Recupere a chave da variável de ambiente
+    key = os.environ['FERNET_KEY'].encode()
+
+    with open(filename, "rb") as f:
+        encrypted_data = f.read()
+    
+    # Verifique se a chave existe e se o arquivo existe
+    if key and os.path.exists(os.path.join(log_folder, filename)):
+        with open(os.path.join(log_folder, filename), "rb") as f:
+            encrypted_data = f.read()
+        
+        # Desencriptar 
+        decrypted_data = decrypt_data(key, encrypted_data)
+
+        for line in decrypted_data.splitlines():
+            parts = line.strip().split(' - ')
+            if len(parts) >= 5:
+                date_time, event_name, folder_path, destination_path, user = parts[:5]
+                logs.append({
+                    'date_time': date_time,
+                    'event_name': event_name,
+                    'folder_path': folder_path,
+                    'destination_path': destination_path,
+                    'user': user,
+                })
+
+    return render(request, 'tables.html', {'logs': logs})
+
+
+""""
 @login_required
 def tables(request):
     logs = []
     log_folder = 'log_folder'
     today = datetime.date.today()
     filename = f'folder_access_{today}.log'
-    # pegar na key aqui
-    # desencriptar os dados
-    # mudar a funcao de baixo para ler os dados da variavel e não do ficheiro
-    if os.path.exists(os.path.join(log_folder, filename)):
-        with open(os.path.join(log_folder, filename), 'r') as f:     
-            for line in f:
+    file_path = os.path.join(log_folder, filename)
+    
+    # Verificar se o arquivo existe antes de tentar ler
+    if os.path.exists(file_path):
+        with open(file_path, "rb") as f:
+            encrypted_data = f.read()
+        
+        # Recuperar a chave da variável de ambiente
+        key = os.environ.get('FERNET_KEY')
+        
+        if key:
+            key = key.encode()
+            
+            # Desencriptar os dados
+            cipher_suite = Fernet(key)
+            original_data = cipher_suite.decrypt(encrypted_data)
+            
+            # Decodificar os dados desencriptados
+            decoded_data = original_data.decode()
+            
+            # Processar os dados decodificados
+            for line in decoded_data.splitlines():
                 parts = line.strip().split(' - ')
                 if len(parts) >= 5:
                     date_time, event_name, folder_path, destination_path, user = parts[:5]
@@ -185,7 +240,10 @@ def tables(request):
                         'destination_path': destination_path,
                         'user': user,
                     })
+    
     return render(request, 'tables.html', {'logs': logs})
+
+"""
 
 @login_required
 def save_path(request):

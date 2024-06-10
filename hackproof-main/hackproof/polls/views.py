@@ -169,8 +169,11 @@ def tables(request):
     log_folder = 'log_folder'
     today = datetime.date.today()
     filename = f'folder_access_{today}.log'
+    # pegar na key aqui
+    # desencriptar os dados
+    # mudar a funcao de baixo para ler os dados da variavel e não do ficheiro
     if os.path.exists(os.path.join(log_folder, filename)):
-        with open(os.path.join(log_folder, filename), 'r') as f:
+        with open(os.path.join(log_folder, filename), 'r') as f:     
             for line in f:
                 parts = line.strip().split(' - ')
                 if len(parts) >= 5:
@@ -201,3 +204,9 @@ def save_path(request):
             current_path = new_path
             current_path = current_path.replace("\\", "/")
     return render(request, 'files.html', {'form_submitted': form_submitted, 'path': current_path})
+
+# Define the decryption function
+def decrypt_data(key, encrypted_data):
+    cipher_suite = Fernet(key)
+    original_data = cipher_suite.decrypt(encrypted_data).decode()
+    return original_data

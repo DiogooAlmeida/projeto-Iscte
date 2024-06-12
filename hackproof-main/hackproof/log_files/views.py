@@ -1,6 +1,3 @@
-from django.shortcuts import render
-
-# Create your views here.
 from django.http import HttpResponse
 from .logs import start_logging
 from polls.models import Path

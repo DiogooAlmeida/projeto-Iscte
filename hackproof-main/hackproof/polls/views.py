@@ -165,23 +165,19 @@ def main_page(request):
 
 @login_required
 def tables(request):
-    logs = []
-    log_folder = 'log_folder'
     today = datetime.date.today()
     filename = f'folder_access_{today}.log'
-    if os.path.exists(os.path.join(log_folder, filename)):
-        with open(os.path.join(log_folder, filename), 'r') as f:
-            for line in f:
-                parts = line.strip().split(' - ')
-                if len(parts) >= 5:
-                    date_time, event_name, folder_path, destination_path, user = parts[:5]
-                    logs.append({
-                        'date_time': date_time,
-                        'event_name': event_name,
-                        'folder_path': folder_path,
-                        'destination_path': destination_path,
-                        'user': user,
-                    })
+    file_path = os.path.join('log_folder', filename)
+
+    if os.path.exists(file_path):
+        with open(file_path, 'r') as f:
+            logs = [
+                dict(zip(['date_time', 'event_name', 'folder_path', 'destination_path', 'user'], line.strip().split(' - ')[:5]))
+                for line in f if len(line.strip().split(' - ')) >= 5
+            ]
+    else:
+        logs = []
+
     return render(request, 'tables.html', {'logs': logs})
 
 @login_required

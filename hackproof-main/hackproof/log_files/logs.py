@@ -3,9 +3,12 @@ from watchdog.observers import Observer
 from watchdog.events import PatternMatchingEventHandler
 import getpass
 import os
+from .encrypt import encrypt_files, decrypt_files
+import threading
 
 class FolderMonitor(PatternMatchingEventHandler):
     def __init__(self, log_file):
+        encrypt_files()
         log_date = time.strftime("%Y-%m-%d")
         # Get the directory of the current script
         script_dir = os.path.dirname(os.path.realpath(__file__))
@@ -42,6 +45,15 @@ def start_logging(log_file, folder_to_watch):
     observer = Observer()
     observer.schedule(event_handler, folder_to_watch, recursive=True)
     observer.start()
+
+    # Start a new thread that encrypts files every 24 hours
+    def encrypt_every_day():
+        while True:
+            time.sleep(86400)  # Sleep for 24 hours
+            encrypt_files()
+
+    encrypt_thread = threading.Thread(target=encrypt_every_day)
+    encrypt_thread.start()
 
     try:
         while True:

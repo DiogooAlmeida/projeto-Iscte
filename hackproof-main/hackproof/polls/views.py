@@ -9,6 +9,11 @@ import datetime
 import json
 import glob
 
+from django.contrib.auth import get_user_model
+from allauth.account.forms import ChangePasswordForm, AddEmailForm, UserForm
+from .forms import UserUpdateForm
+
+
 # Create your views here.
 
 def index(request):
@@ -197,3 +202,49 @@ def save_path(request):
             current_path = new_path
             current_path = current_path.replace("\\", "/")
     return render(request, 'files.html', {'form_submitted': form_submitted, 'path': current_path})
+
+User = get_user_model()
+
+
+@login_required
+def account_settings(request):
+
+    email_form = AddEmailForm(user=request.user)
+    password_form = ChangePasswordForm(request.user)
+    user_form = UserUpdateForm(instance=request.user)
+    
+
+    if request.method == 'POST':
+        if 'change_password' in request.POST:
+            password_form = ChangePasswordForm(request.user, request.POST)
+            if password_form.is_valid():
+                password_form.save()  
+                messages.success(request, 'Sua senha foi alterada com sucesso.')
+                return redirect('definicoes')
+            
+        elif 'delete_account' in request.POST:
+            password = request.POST.get('password')
+            if request.user.check_password(password):
+                request.user.delete()
+                messages.success(request, 'Sua conta foi excluída com sucesso.')
+                return redirect('account_login')
+            else:
+                messages.error(request, 'Senha incorreta.')
+
+        elif 'update_user' in request.POST:
+            user_form = UserUpdateForm(request.POST, instance=request.user)
+            if user_form.is_valid():
+                user_form.save()
+                messages.success(request, 'Seu perfil foi atualizado com sucesso.')
+                return redirect('definicoes')
+
+    else:
+        email_form = AddEmailForm(user=request.user)
+        password_form = ChangePasswordForm(request.user)
+
+    return render(request, 'definicoes.html', {
+        'email_form': email_form,
+        'password_form': password_form,
+        'user_form': user_form,
+        
+    })

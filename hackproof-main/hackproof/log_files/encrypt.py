@@ -2,6 +2,9 @@ import os
 import datetime
 from cryptography.fernet import Fernet
 from .models import EncryptedFile
+from datetime import datetime
+import shutil
+from django.utils import timezone
 
 # Generate a key and save it to a file
 key = Fernet.generate_key()
@@ -13,11 +16,10 @@ with open("key.key", "rb") as key_file:
     key = key_file.read()
 cipher_suite = Fernet(key)
 
-
-
 def encrypt_files():
     log_folder = 'log_folder'
-    today = datetime.date.today()
+    archive_folder = 'archive_folder'  # replace with your archive folder path
+    today = datetime.today().date()
 
     for filename in os.listdir(log_folder):
         if filename.endswith(".log") and not filename.startswith(f'folder_access_{today}'):
@@ -31,11 +33,11 @@ def encrypt_files():
             # Store the encrypted data in the database
             EncryptedFile.objects.update_or_create(
                 filename=filename,
-                defaults={'data': encrypted_data},
+                defaults={'data': encrypted_data,'saved_month': datetime.now()},
             )
 
-            # Delete the original file
-            os.remove(os.path.join(log_folder, filename))
+            # Move the original file to the archive folder
+            shutil.move(os.path.join(log_folder, filename), os.path.join(archive_folder, filename))
 
 def decrypt_files():
     log_folder = 'log_folder'

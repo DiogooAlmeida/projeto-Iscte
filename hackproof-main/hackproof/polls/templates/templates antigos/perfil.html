@@ -32,6 +32,10 @@ Perfil
                                 <p>Conta de Administrador: {% if user.is_superuser %}Sim{% else %}Não{% endif %}</p>
                                 <!-- Edit Profile Button -->
                                 <a href="{% url 'definicoes' %}" class="btn btn-primary mt-3">Editar Perfil</a>
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-primary mt-3">Enviar Logs do mês para o Email</button>
+                                </form>
                             </div>
                         </div>
                     </div>

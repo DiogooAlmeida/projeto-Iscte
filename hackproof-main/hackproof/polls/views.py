@@ -4,11 +4,17 @@ from newsapi import NewsApiClient
 from collections import Counter
 from django.contrib.auth.decorators import login_required
 from .models import Path
+from django.core.mail import send_mail
 import os
 import datetime
 import json
 import glob
-
+from django.core.files.storage import default_storage
+from django.core.mail import EmailMessage
+from .models import LogFilesEncrypted
+from datetime import date
+from django.utils import timezone
+from django.core.files import File
 # Create your views here.
 
 def index(request):
@@ -139,6 +145,9 @@ def logout(request):
 
 @login_required
 def perfil(request):
+    if request.method == 'POST':
+        send_emails(request)
+        return redirect('perfil')
     return render(request, "perfil.html")
 
 
@@ -177,7 +186,6 @@ def tables(request):
             ]
     else:
         logs = []
-
     return render(request, 'tables.html', {'logs': logs})
 
 @login_required
@@ -197,3 +205,26 @@ def save_path(request):
             current_path = new_path
             current_path = current_path.replace("\\", "/")
     return render(request, 'files.html', {'form_submitted': form_submitted, 'path': current_path})
+
+def send_emails(request):
+    user_email = request.user.email
+
+    folder_path = 'archive_folder'  # replace with your folder path
+    files_in_folder = os.listdir(folder_path)
+
+    if files_in_folder:
+        email = EmailMessage(
+            'Your monthly logs',  # subject
+            'Body of the message',  # message
+            'letter.1alert@gmail.com',  # from email
+            [user_email],  # recipient list
+        )
+
+        for file_name in files_in_folder:
+            file_path = os.path.join(folder_path, file_name)
+            with open(file_path, 'rb') as file:
+                email.attach(file_name, file.read())
+
+        email.send()
+    else:
+        messages.error(request, 'No files found in the selected folder.')

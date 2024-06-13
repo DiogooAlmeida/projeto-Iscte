@@ -10,6 +10,7 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+ 
 
  .fw-bolder {
   overflow: hidden; /* Ensures the text is hidden beyond the border */
@@ -31,25 +32,30 @@
   50% { border-color: white; }
 }
 
+#services {
+  padding: 60px 0;
+}
+
 .service-box {
-  border: 1px solid black;
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 8px;
-  background-color: #fff;
-  height: 150px; /* Altere conforme necessário */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  background-color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.service-box h3 {
-  margin-bottom: 15px;
+.service-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-.service-box p {
-  margin: 0;
+.nav-link {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
+
+.nav-link:hover {
+  color: #0056b3;
+}
+
 
 :root {
   --bs-blue: #0d6efd;

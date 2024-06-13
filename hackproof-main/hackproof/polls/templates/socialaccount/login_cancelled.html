@@ -2,14 +2,14 @@
 {% load i18n %}
 {% load allauth %}
 {% block head_title %}
-    {% trans "Login Cancelled" %}
+    {% trans "Login Cancelado" %}
 {% endblock head_title %}
 {% block content %}
     {% element h1 %}
-        {% trans "Login Cancelled" %}
+        {% trans "Login Cancelado" %}
     {% endelement %}
     {% url 'account_login' as login_url %}
     {% element p %}
-        {% blocktrans %}You decided to cancel logging in to our site using one of your existing accounts. If this was a mistake, please proceed to <a href="{{login_url}}">sign in</a>.{% endblocktrans %}
+        {% blocktrans %}Decidiu cancelar o início de sessão no nosso sítio utilizando uma das suas contas existentes. Se isto foi um erro, por favor, prossiga para <a href="{{login_url}}">sign in</a>.{% endblocktrans %}
     {% endelement %}
 {% endblock content %}

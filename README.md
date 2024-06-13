@@ -7,6 +7,8 @@ Para poder correr o projeto é necessária a instalação de vários softwares, 
 
 De seguida, correr o comando "pip install -r requirements.txt" na pasta principal do projeto "projeto-Iscte".
 
+O projeto foi apenas testado no sistema operativo Windows
+
 ## Como utilizar o Hackproof?
 Para correr o projeto, correr o comando "python manage.py runserver" na pasta "projeto-Iscte\hackproof-main\hackproof"
 

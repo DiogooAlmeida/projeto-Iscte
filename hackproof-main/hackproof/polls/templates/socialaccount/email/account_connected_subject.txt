@@ -1,4 +1,4 @@
 {% load i18n %}
 {% autoescape off %}
-{% blocktrans %}Conta de terceiros ligada{% endblocktrans %}
+{% blocktrans %}Third-Party Account Connected{% endblocktrans %}
 {% endautoescape %}

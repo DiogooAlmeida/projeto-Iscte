@@ -1,1 +1,2 @@
-{% block %}A conta de terceiros foi desligada.{% endblock %}
+{% load i18n %}
+{% blocktrans %}The third-party account has been disconnected.{% endblocktrans %}

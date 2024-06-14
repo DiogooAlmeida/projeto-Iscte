@@ -1,1 +1,2 @@
-{% block %}A conta de terceiros já está ligada a uma conta diferente.{% endblock %}
+{% load i18n %}
+{% blocktrans %}The third-party account is already connected to a different account.{% endblocktrans %}

@@ -15,16 +15,22 @@ from .models import LogFilesEncrypted
 from datetime import date
 from django.utils import timezone
 from django.core.files import File
-from django.contrib.auth import get_user_model
-from allauth.account.forms import ChangePasswordForm, AddEmailForm
-from .forms import UserUpdateForm
-
+# Create your views here.
 
 def index(request):
     return render(request, "index.html")
 
+def login(request):
+    return render(request, "login.html")
+
+def register(request):
+    return render(request, "register.html")
+
 def dicas(request):
     return render(request, "dicas.html")
+
+def password(request):
+    return render(request, "forgot-password.html")
 
 def get_event_counts():
     logs = []
@@ -133,6 +139,9 @@ def definicoes(request):
     else:
         return render(request, 'definicoes.html')
 
+@login_required
+def logout(request):
+    return render(request, "logout.html")
 
 @login_required
 def perfil(request):
@@ -219,49 +228,3 @@ def send_emails(request):
         email.send()
     else:
         messages.error(request, 'No files found in the selected folder.')
-
-
-User = get_user_model()
-
-@login_required
-def account_settings(request):
-
-    email_form = AddEmailForm(user=request.user)
-    password_form = ChangePasswordForm(request.user)
-    user_form = UserUpdateForm(instance=request.user)
-    
-
-    if request.method == 'POST':
-        if 'change_password' in request.POST:
-            password_form = ChangePasswordForm(request.user, request.POST)
-            if password_form.is_valid():
-                password_form.save()  
-                messages.success(request, 'Sua senha foi alterada com sucesso.')
-                return redirect('definicoes')
-            
-        elif 'delete_account' in request.POST:
-            password = request.POST.get('password')
-            if request.user.check_password(password):
-                request.user.delete()
-                messages.success(request, 'Sua conta foi excluída com sucesso.')
-                return redirect('account_login')
-            else:
-                messages.error(request, 'Senha incorreta.')
-
-        elif 'update_user' in request.POST:
-            user_form = UserUpdateForm(request.POST, instance=request.user)
-            if user_form.is_valid():
-                user_form.save()
-                messages.success(request, 'Seu perfil foi atualizado com sucesso.')
-                return redirect('definicoes')
-
-    else:
-        email_form = AddEmailForm(user=request.user)
-        password_form = ChangePasswordForm(request.user)
-
-    return render(request, 'definicoes.html', {
-        'email_form': email_form,
-        'password_form': password_form,
-        'user_form': user_form,
-        
-    })

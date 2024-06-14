@@ -18,4 +18,8 @@ A partir daí, pode explorar o website e fazer o registo na página de registar.
 
 Após registar pode fazer o login e explorar o site do Hackproof.
 
+Caso queira aceder ao painel de admin terá que aceder à página http://127.0.0.1:8000/admin  poderá estas credenciais
+Username: iscte
+Password: 123
+
 

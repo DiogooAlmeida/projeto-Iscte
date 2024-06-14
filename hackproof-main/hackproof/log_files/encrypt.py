@@ -6,16 +6,17 @@ from datetime import datetime
 import shutil
 from django.utils import timezone
 
-# Generate a key and save it to a file
+# Gera uma chave e guarda num ficheiro
 key = Fernet.generate_key()
 with open("key.key", "wb") as key_file:
     key_file.write(key)
 
-# Load the key from the file and instantiate a Fernet instance
+# Lê a chave e inicia uma instância do Fernet
 with open("key.key", "rb") as key_file:
     key = key_file.read()
 cipher_suite = Fernet(key)
 
+# Função que encripta os ficheiros
 def encrypt_files():
     log_folder = 'log_folder'
     archive_folder = 'archive_folder'  # replace with your archive folder path
@@ -39,6 +40,7 @@ def encrypt_files():
             # Move the original file to the archive folder
             shutil.move(os.path.join(log_folder, filename), os.path.join(archive_folder, filename))
 
+# Função que desencripta os ficheiros
 def decrypt_files():
     log_folder = 'log_folder'
 

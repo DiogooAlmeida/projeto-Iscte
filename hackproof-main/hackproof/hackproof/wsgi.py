@@ -15,6 +15,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from polls.models import Path  # replace "polls" with the name of your app
 from log_files.logs import start_logging
 
+# Inicia uma thread para o log de acesso a pasta
 def start_logging_in_thread():
     log_file = "folder_access"  # Change this to your desired log file path
     path_obj = Path.objects.first()

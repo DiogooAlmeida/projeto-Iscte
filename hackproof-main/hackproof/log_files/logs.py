@@ -6,7 +6,10 @@ import os
 from .encrypt import encrypt_files, decrypt_files
 import threading
 
+# Classe que monitoriza a pasta por mudanças
 class FolderMonitor(PatternMatchingEventHandler):
+
+    # Construtor da classe
     def __init__(self, log_file):
         encrypt_files()
         log_date = time.strftime("%Y-%m-%d")
@@ -16,6 +19,7 @@ class FolderMonitor(PatternMatchingEventHandler):
         self.log_file = os.path.join(script_dir, f"{log_file}_{log_date}")
         super().__init__(ignore_patterns=[log_file, "*.tmp"])
 
+    # Método que é chamado quando ocorre um evento
     def on_any_event(self, event):
         if event.is_directory:
             return None
@@ -40,6 +44,7 @@ class FolderMonitor(PatternMatchingEventHandler):
         with open(f"log_folder\\{log_filename}.log", "a") as f:
             f.write(f"{log_time} - {event_name} - {event.src_path} - {dest_path} - {user}\n")
 
+# Função que inicia o log
 def start_logging(log_file, folder_to_watch):
     event_handler = FolderMonitor(log_file)
     observer = Observer()

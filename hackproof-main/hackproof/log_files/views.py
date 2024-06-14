@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from .logs import start_logging
 from polls.models import Path
 
+# Inicia o log de acesso a pasta
 def start_logging_view(request):
     log_file = "folder_access"  # Change this to your desired log file path
     folder_to_watch = Path.objects.first()

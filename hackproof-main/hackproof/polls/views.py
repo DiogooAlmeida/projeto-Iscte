@@ -17,21 +17,27 @@ from django.utils import timezone
 from django.core.files import File
 # Create your views here.
 
+# View que mostra a página inicial
 def index(request):
     return render(request, "index.html")
 
+# View que mostra a página de login
 def login(request):
     return render(request, "login.html")
 
+# View que mostra a página de registo
 def register(request):
     return render(request, "register.html")
 
+# View que mostra a página das dicas
 def dicas(request):
     return render(request, "dicas.html")
 
+# View que mostra a página de recuperação da password
 def password(request):
     return render(request, "forgot-password.html")
 
+# Função que conta o número de eventos por categoria
 def get_event_counts():
     logs = []
     log_folder = 'log_folder'
@@ -52,9 +58,10 @@ def get_event_counts():
                     })
 
     event_counts = Counter(log['event_name'] for log in logs)
-    event_counts_dict = dict(event_counts)  # Convert to regular dictionary
+    event_counts_dict = dict(event_counts) 
     return event_counts_dict
 
+# Função que conta o número de eventos
 def get_all_event_counts():
     logs = []
     log_folder = 'log_folder'
@@ -78,6 +85,7 @@ def get_all_event_counts():
     total_event_count = sum(event_counts.values())  # Sum up all the counts
     return total_event_count
 
+# View que mostra a página dos gráficos e necessita do registo de logs
 @login_required
 def charts(request):
     event_counts_dict = get_event_counts()
@@ -87,6 +95,7 @@ def charts(request):
         'all_event_counts': all_event_counts
     })
 
+# View que mostra a página de dicas/notícias
 @login_required
 def dicas(request):
    
@@ -94,17 +103,19 @@ def dicas(request):
 
     return render(request, "dicas.html", {'articles': articles})
 
+# View que mostra a página de erro 401
 def page_401(request):
     return render(request, "401.html")
 
-
+# View que mostra a página de erro 404
 def page_404(request):
     return render(request, "404.html")
 
-
+# View que mostra a página de erro 500
 def page_500(request):
     return render(request, "500.html")
 
+# View que mostra a página de definições e as mensagens de sucesso e altera os dados do utilizador
 @login_required
 def definicoes(request):
     if request.method == 'POST':
@@ -139,10 +150,12 @@ def definicoes(request):
     else:
         return render(request, 'definicoes.html')
 
+# View que mostra a página de logout
 @login_required
 def logout(request):
     return render(request, "logout.html")
 
+# View que mostra o perfil do utilizador
 @login_required
 def perfil(request):
     if request.method == 'POST':
@@ -150,7 +163,7 @@ def perfil(request):
         return redirect('perfil')
     return render(request, "perfil.html")
 
-
+# Função que pega nas notícias do site newsapi
 def get_news():
     newsapi = NewsApiClient(api_key='c9669e9e1bed456eb08fc9f887a5054a')
     news = newsapi.get_everything(q='cybersecurity tips',
@@ -159,6 +172,7 @@ def get_news():
                                  )    
     return news['articles']  # Get the first 5 articles
 
+# View que mostra a página inicial e as notícias
 @login_required 
 def main_page(request):
     articles = get_news()
@@ -171,7 +185,7 @@ def main_page(request):
 
     return render(request, "main_page.html", context)
 
-
+# View que mostra o template tables.html e mostra as tabelas com os logs
 @login_required
 def tables(request):
     today = datetime.date.today()
@@ -197,8 +211,7 @@ def tables(request):
 
     return render(request, 'tables.html', {'logs': logs})
 
-@login_required
-
+# Função para salvar o diretório
 @login_required
 def save_path(request):
     path_obj = Path.objects.first()
@@ -217,6 +230,7 @@ def save_path(request):
             current_path = current_path.replace("\\", "/")
     return render(request, 'files.html', {'form_submitted': form_submitted, 'path': current_path})
 
+# Envia emails com os logs em anexo
 def send_emails(request):
     user_email = request.user.email
 

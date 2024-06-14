@@ -11,29 +11,35 @@
 {% endblock %}
 
 {% block content %}
+<style>
+    .btn-custom {
+        border-radius: 10rem;
+    }
+</style>
+
 <form id="signup_form" method="post" action="{% url 'account_signup' %}">
     {% csrf_token %}
     <div class="form-group">
-        <input type="text" name="username" class="form-control form-control-user" id="login" placeholder="{% trans 'Username' %}" required>
+        <input type="text" name="username" class="form-control form-control-user btn-custom" id="login" placeholder="{% trans 'Username' %}" required>
     </div>
     <div class="form-group">
-        <input type="email" name="email" class="form-control form-control-user" id="email" placeholder="{% trans 'Endereço E-mail' %}" required>
+        <input type="email" name="email" class="form-control form-control-user btn-custom" id="email" placeholder="{% trans 'Endereço E-mail' %}" required>
     </div>
     <div class="form-group row">
         <div class="col-sm-6 mb-3 mb-sm-0">
-            <input type="password" name="password1" class="form-control form-control-user" id="password1" placeholder="{% trans 'Password' %}" required>
+            <input type="password" name="password1" class="form-control form-control-user btn-custom" id="password1" placeholder="{% trans 'Password' %}" required>
         </div>
         <div class="col-sm-6">
-            <input type="password" name="password2" class="form-control form-control-user" id="password2" placeholder="{% trans 'Repetir Password' %}" required>
+            <input type="password" name="password2" class="form-control form-control-user btn-custom" id="password2" placeholder="{% trans 'Repetir Password' %}" required>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary btn-user btn-block" value="signup">
+    <button type="submit" class="btn btn-primary btn-user btn-block btn-custom" value="signup">
         {% trans "Registar Conta" %}
     </button>
 </form>
 <hr>
-<a href="{% provider_login_url 'google' process='login' %}" class="btn btn-google btn-user btn-block">
-    <i class="fab fa-google fa-fw"></i> {% trans "Registar com o Google" %}
+<a href="{% provider_login_url 'google' process='login' %}" class="btn btn-google btn-user btn-block btn-custom">
+    <i class="fab fa-google fa-fw btn-custom"></i> {% trans "Registar com o Google" %}
 </a>
 <hr>
 <div class="text-center">

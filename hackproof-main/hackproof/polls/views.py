@@ -15,27 +15,19 @@ from .models import LogFilesEncrypted
 from datetime import date
 from django.utils import timezone
 from django.core.files import File
+from allauth.account.forms import ChangePasswordForm
+from django.contrib.auth import authenticate
 # Create your views here.
 
 # View que mostra a página inicial
 def index(request):
     return render(request, "index.html")
 
-# View que mostra a página de login
-def login(request):
-    return render(request, "login.html")
-
-# View que mostra a página de registo
-def register(request):
-    return render(request, "register.html")
 
 # View que mostra a página das dicas
 def dicas(request):
     return render(request, "dicas.html")
 
-# View que mostra a página de recuperação da password
-def password(request):
-    return render(request, "forgot-password.html")
 
 # Função que conta o número de eventos por categoria
 def get_event_counts():
@@ -253,3 +245,50 @@ def send_emails(request):
         email.send()
     else:
         messages.error(request, 'No files found in the selected folder.')
+
+
+# views.py
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from allauth.account.forms import ChangePasswordForm
+from .forms import UserUpdateForm
+
+@login_required
+def account_settings(request):
+    password_form = ChangePasswordForm(user=request.user)
+    user_form = UserUpdateForm(instance=request.user)
+
+    if request.method == 'POST':
+        if 'update_user' in request.POST:
+            user_form = UserUpdateForm(request.POST, instance=request.user)
+            if user_form.is_valid():
+                user_form.save()
+                messages.success(request, 'Perfil atualizado com sucesso!')
+                return redirect('definicoes')
+        elif 'change_password' in request.POST:
+            password_form = ChangePasswordForm(user=request.user, data=request.POST)
+            if password_form.is_valid():
+                password_form.save()
+                messages.success(request, 'Password alterada com sucesso!')
+                return redirect('definicoes')
+        elif 'delete_account' in request.POST:
+            password = request.POST.get('password')
+            user = authenticate(username=request.user.username, password=password)
+            if user is not None:
+                user.delete()
+                messages.success(request, 'Conta excluída com sucesso!')
+                return redirect('account_logout')  
+            else:
+                messages.error(request, 'Senha incorreta. Não foi possível excluir a conta.')
+
+    context = {
+        'password_form': password_form,
+        'user_form': user_form,
+    }
+    return render(request, 'definicoes.html', context)
+
+
+

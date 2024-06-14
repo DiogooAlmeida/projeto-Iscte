@@ -13,7 +13,7 @@
 <form class="user" method="POST" action="{% url 'account_login' %}">
     {% csrf_token %}
     <div class="form-group">
-        <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="login" aria-describedby="emailHelp" placeholder="Insira o seu E-mail..." required>
+        <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="login" aria-describedby="emailHelp" placeholder="Insira o username ou o email " required>
     </div>
     <div class="form-group">
         <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password" required>

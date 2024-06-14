@@ -22,4 +22,6 @@ Caso queira aceder ao painel de admin terá que aceder à página http://127.0.0
 Username: iscte
 Password: 123
 
+Caso queira trocar de dirétorio deverá alterar o mesmo na página "Esceolher Dirétorio" e clicar em salvar. Após isso deverá reiniciar o nosso projeto clicanddo na tecla CTRL + C e depois digitando novamente o comando "python manage.py runserver" na pasta "projeto-Iscte\hackproof-main\hackproof"
+
 

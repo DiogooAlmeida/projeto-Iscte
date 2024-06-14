@@ -1,6 +1,4 @@
 __pycache__/
 *.py[cod]
 hackproof-main/hackproof/db.sqlite3
-hackproof-main/hackproof/log_folder/folder_access_2024-06-09.log
-*.sqlite3
 

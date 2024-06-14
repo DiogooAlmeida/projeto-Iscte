@@ -178,15 +178,26 @@ def tables(request):
     filename = f'folder_access_{today}.log'
     file_path = os.path.join('log_folder', filename)
 
+    old_logs_count = request.session.get('logs_count', 0)
+
     if os.path.exists(file_path):
         with open(file_path, 'r') as f:
             logs = [
                 dict(zip(['date_time', 'event_name', 'folder_path', 'destination_path', 'user'], line.strip().split(' - ')[:5]))
                 for line in f if len(line.strip().split(' - ')) >= 5
             ]
+
+        new_logs_count = sum(1 for line in open(file_path))
+        if new_logs_count > old_logs_count:
+            request.session['logs_count'] = new_logs_count
+            send_mail('Novo Alerta',"Um novo alerta foi gerado no sistema.",'letter.1alert@gmail.com',  # from email
+            [request.user.email],)
     else:
         logs = []
+
     return render(request, 'tables.html', {'logs': logs})
+
+@login_required
 
 @login_required
 def save_path(request):
